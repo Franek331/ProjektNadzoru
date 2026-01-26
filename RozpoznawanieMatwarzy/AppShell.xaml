@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="RozpoznawanieMatwarzy.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:RozpoznawanieMatwarzy"
+     xmlns:views="clr-namespace:RozpoznawanieMatwarzy.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="RozpoznawanieMatwarzy">
+
+    <TabBar>
+        <ShellContent
+            Title="Rejestracja"
+            ContentTemplate="{DataTemplate views:StronaRejestracji}"
+            Route="Rejestracja" />
+
+        <ShellContent
+            Title="Rozpoznawanie"
+            ContentTemplate="{DataTemplate views:StronaRozpoznawania}"
+            Route="Rozpoznawanie" />
+    </TabBar>
+
+
+</Shell>
