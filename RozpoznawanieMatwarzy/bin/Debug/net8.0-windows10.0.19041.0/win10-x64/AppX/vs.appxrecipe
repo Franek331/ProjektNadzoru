@@ -10,14 +10,14 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>com.companyname.rozpoznawaniematwarzy</PackageIdentityName>
     <PackageIdentityPublisher>CN=User Name</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
+    <LayoutDir>C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
     <RegisteredManifestChecksum>A47A4D0D6CCF9556858F7548EF085A02257909C4230AFEF8C0C833CF77101DCF</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>com.companyname.rozpoznawaniematwarzy_1.0.0.1_x64__9zz4h110yvjzm</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>com.companyname.rozpoznawaniematwarzy_9zz4h110yvjzm!App</RegisteredUserModeAppID>
@@ -26,268 +26,268 @@
     <RegisteredVersion>1.0.0.1</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
+    <AppXManifest Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-01-26T14:58:18.650</Modified>
+      <Modified>2026-01-29T18:17:38.971</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-01-26T14:56:44.273</Modified>
+      <Modified>2026-01-29T18:16:50.483</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.runtimeconfig.json">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.runtimeconfig.json">
       <PackagePath>RozpoznawanieMatwarzy.runtimeconfig.json</PackagePath>
-      <Modified>2026-01-25T17:10:42.787</Modified>
+      <Modified>2026-01-29T16:53:33.379</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.dll">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.dll">
       <PackagePath>RozpoznawanieMatwarzy.dll</PackagePath>
-      <Modified>2026-01-26T14:58:17.734</Modified>
+      <Modified>2026-01-29T18:17:38.601</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>RozpoznawanieMatwarzy.exe</PackagePath>
-      <Modified>2026-01-26T14:58:17.777</Modified>
+      <Modified>2026-01-29T18:17:38.607</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\Resources\Raw\AboutAssets.txt">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
       <Modified>2026-01-25T17:05:11.680</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
       <Modified>2026-01-25T17:05:17.565</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
       <Modified>2026-01-25T17:05:17.565</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
       <Modified>2026-01-25T17:05:17.565</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
       <Modified>2026-01-25T17:05:17.565</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
       <Modified>2026-01-25T17:05:17.565</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
       <Modified>2026-01-25T17:05:17.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
       <Modified>2026-01-25T17:05:17.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
       <Modified>2026-01-25T17:05:53.549</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-16.png</PackagePath>
       <Modified>2026-01-25T17:05:53.547</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-24.png</PackagePath>
       <Modified>2026-01-25T17:05:53.547</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-256.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-32.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-lightunplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-lightunplated_targetsize-48.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-16.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-16.png</PackagePath>
       <Modified>2026-01-25T17:05:53.547</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-24.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-24.png</PackagePath>
       <Modified>2026-01-25T17:05:53.547</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-256.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-256.png</PackagePath>
       <Modified>2026-01-25T17:05:53.547</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-32.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-32.png</PackagePath>
       <Modified>2026-01-25T17:05:53.547</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.altform-unplated_targetsize-48.png">
       <PackagePath>appiconLogo.altform-unplated_targetsize-48.png</PackagePath>
       <Modified>2026-01-25T17:05:53.547</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
       <Modified>2026-01-25T17:05:53.549</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-16.png">
       <PackagePath>appiconLogo.targetsize-16.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-24.png">
       <PackagePath>appiconLogo.targetsize-24.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-256.png">
       <PackagePath>appiconLogo.targetsize-256.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-32.png">
       <PackagePath>appiconLogo.targetsize-32.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.targetsize-48.png">
       <PackagePath>appiconLogo.targetsize-48.png</PackagePath>
       <Modified>2026-01-25T17:05:53.548</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-100.png">
       <PackagePath>dotnet_bot.scale-100.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-125.png">
       <PackagePath>dotnet_bot.scale-125.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-150.png">
       <PackagePath>dotnet_bot.scale-150.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-200.png">
       <PackagePath>dotnet_bot.scale-200.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\dotnet_bot.scale-400.png">
       <PackagePath>dotnet_bot.scale-400.png</PackagePath>
       <Modified>2026-01-25T17:05:53.541</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\FranekProjekt\Franek331-project\RozpoznawanieMatwarzy\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.deps.json">
+    <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.deps.json">
       <PackagePath>RozpoznawanieMatwarzy.deps.json</PackagePath>
-      <Modified>2026-01-26T14:56:44.087</Modified>
+      <Modified>2026-01-29T18:16:50.286</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

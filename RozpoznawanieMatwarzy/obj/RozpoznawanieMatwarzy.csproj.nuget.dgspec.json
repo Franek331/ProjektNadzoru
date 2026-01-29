@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\FranekProjekt\\Franek331-project\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj": {}
+    "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj": {}
   },
   "projects": {
-    "C:\\FranekProjekt\\Franek331-project\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj": {
+    "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\FranekProjekt\\Franek331-project\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj",
+        "projectUniqueName": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj",
         "projectName": "RozpoznawanieMatwarzy",
-        "projectPath": "C:\\FranekProjekt\\Franek331-project\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj",
+        "projectPath": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj",
         "packagesPath": "C:\\Users\\Franio\\.nuget\\packages\\",
-        "outputPath": "C:\\FranekProjekt\\Franek331-project\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy\\obj\\",
+        "outputPath": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

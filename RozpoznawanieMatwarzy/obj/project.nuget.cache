@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IKWurOS3Kgc=",
+  "dgSpecHash": "CYCLsLMZFNM=",
   "success": true,
-  "projectFilePath": "C:\\FranekProjekt\\Franek331-project\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj",
+  "projectFilePath": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Franio\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\Franio\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",

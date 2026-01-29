@@ -18,9 +18,11 @@ namespace RozpoznawanieMatwarzy
                 });
             builder.Services.AddSingleton<SerwisApiTwarzy>();
             builder.Services.AddSingleton<SerwisNFC>();
+            builder.Services.AddSingleton<SerwisAutoryzacji>();
 
             builder.Services.AddTransient<StronaRejestracji>();
             builder.Services.AddTransient<StronaRozpoznawania>();
+            builder.Services.AddTransient<StronaLogowania>();
 
 
 

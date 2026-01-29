@@ -232,15 +232,15 @@ namespace RozpoznawanieMatwarzy.ViewModels
                     Wynik = "❌ Nie rozpoznano";
                     KolorWyniku = Colors.Red;
                     StatusBezpieczenstwa = "";
-                    await Application.Current.MainPage.DisplayAlert("Nie rozpoznano",
-                        odpowiedz.Wiadomosc ?? "Brak w bazie.", "OK");
+                    //await Application.Current.MainPage.DisplayAlert("Nie rozpoznano",
+                    //    odpowiedz.Wiadomosc ?? "Brak w bazie.", "OK");
                 }
             }
             catch (Exception ex)
             {
                 Wynik = $"❌ Błąd: {ex.Message}";
                 KolorWyniku = Colors.Red;
-                await Application.Current.MainPage.DisplayAlert("Błąd", ex.Message, "OK");
+                //await Application.Current.MainPage.DisplayAlert("Błąd", ex.Message, "OK");
             }
             finally
             {
@@ -268,15 +268,15 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 StatusBezpieczenstwa = "🚨 POSZUKIWANY! ALERT BEZPIECZEŃSTWA! 🚨";
 
                 // Wyświetl ostrzeżenie
-                await Application.Current.MainPage.DisplayAlert(
-                    "⚠️ ALERTA BEZPIECZEŃSTWA!",
-                    $"OSOBA POSZUKIWANA!\n\n" +
-                    $"{odpowiedz.Imie} {odpowiedz.Nazwisko}\n" +
-                    $"PESEL: {odpowiedz.Pesel}\n\n" +
-                    $"Powód: {securityStatus.Powód}\n\n" +
-                    $"",
-                    "OK"
-                );
+                //await Application.Current.MainPage.DisplayAlert(
+                //    "⚠️ ALERTA BEZPIECZEŃSTWA!",
+                //    $"OSOBA POSZUKIWANA!\n\n" +
+                //    $"{odpowiedz.Imie} {odpowiedz.Nazwisko}\n" +
+                //    $"PESEL: {odpowiedz.Pesel}\n\n" +
+                //    $"Powód: {securityStatus.Powód}\n\n" +
+                //    $"",
+                //    "OK"
+                //);
             }
             else if (securityStatus.Zastrzeżony)
             {
@@ -284,12 +284,12 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 KolorBezpieczenstwa = Colors.Orange;
                 StatusBezpieczenstwa = "⚠️ ZASTRZEŻONY";
 
-                await Application.Current.MainPage.DisplayAlert(
-                    "⚠️ Osoba Zastrzeżona",
-                    $"{odpowiedz.Imie} {odpowiedz.Nazwisko}\n" +
-                    $"Powód: {securityStatus.Powód}",
-                    "OK"
-                );
+                //await Application.Current.MainPage.DisplayAlert(
+                //    "⚠️ Osoba Zastrzeżona",
+                //    $"{odpowiedz.Imie} {odpowiedz.Nazwisko}\n" +
+                //    $"Powód: {securityStatus.Powód}",
+                //    "OK"
+                //);
             }
             else
             {

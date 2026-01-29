@@ -9,6 +9,7 @@ namespace RozpoznawanieMatwarzy.Services
     public class SerwisApiTwarzy
     {
         private readonly HttpClient _httpClient;
+        private readonly SerwisAutoryzacji _serwisAutoryzacji;
 
         public SerwisApiTwarzy()
         {
@@ -17,14 +18,29 @@ namespace RozpoznawanieMatwarzy.Services
                 BaseAddress = new Uri(Stale.URL_BAZY),
                 Timeout = TimeSpan.FromSeconds(30)
             };
+            
+            _serwisAutoryzacji = new SerwisAutoryzacji();
         }
 
-        // Rejestracja twarzy z nowymi polami
+        // Dodaj token do requestu
+        private async Task DodajTokenDoRequestu()
+        {
+            var token = await _serwisAutoryzacji.PobierzTokenAsync();
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Remove("Authorization");
+                _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+            }
+        }
+
+        // Rejestracja twarzy z tokenem autoryzacji
         public async Task<OdpowiedzRejestracji> ZarejestrujTwarzAsync(
             string imie, string nazwisko, string pesel, DateTime dataUrodzenia, string plec, byte[] zdjecieBytes)
         {
             try
             {
+                await DodajTokenDoRequestu();
+
                 var content = new MultipartFormDataContent();
 
                 content.Add(new StringContent(imie), "firstName");
@@ -48,6 +64,14 @@ namespace RozpoznawanieMatwarzy.Services
                         Wiadomosc = "Błąd deserializacji odpowiedzi"
                     };
                 }
+                else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    return new OdpowiedzRejestracji
+                    {
+                        Sukces = false,
+                        Wiadomosc = "Sesja wygasła. Zaloguj się ponownie."
+                    };
+                }
                 else
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
@@ -68,7 +92,7 @@ namespace RozpoznawanieMatwarzy.Services
             }
         }
 
-        // Rozpoznawanie twarzy
+        // Rozpoznawanie twarzy (bez tokenu - publiczny endpoint)
         public async Task<OdpowiedzRozpoznania> RozpoznajTwarzAsync(byte[] zdjecieBytes)
         {
             try
@@ -115,6 +139,7 @@ namespace RozpoznawanieMatwarzy.Services
         {
             try
             {
+                await DodajTokenDoRequestu();
                 var response = await _httpClient.GetAsync(Stale.ENDPOINT_LISTA_TWARZY);
 
                 if (response.IsSuccessStatusCode)
@@ -136,6 +161,7 @@ namespace RozpoznawanieMatwarzy.Services
         {
             try
             {
+                await DodajTokenDoRequestu();
                 var response = await _httpClient.GetAsync($"{Stale.URL_BAZY}/api/faces/{pesel}");
 
                 if (response.IsSuccessStatusCode)
@@ -163,6 +189,7 @@ namespace RozpoznawanieMatwarzy.Services
                 return null;
             }
         }
+
         public async Task<StatusBezpieczenstwa> PobierzStatusBezpieczenstwa(string pesel)
         {
             try
@@ -221,11 +248,13 @@ namespace RozpoznawanieMatwarzy.Services
                 return new StatusNFC { Zarejestrowany = false, Aktywny = false };
             }
         }
+
         // Usuń osobę
         public async Task<bool> UsunOsobeAsync(string pesel)
         {
             try
             {
+                await DodajTokenDoRequestu();
                 var response = await _httpClient.DeleteAsync($"{Stale.URL_BAZY}/api/faces/{pesel}");
                 return response.IsSuccessStatusCode;
             }
