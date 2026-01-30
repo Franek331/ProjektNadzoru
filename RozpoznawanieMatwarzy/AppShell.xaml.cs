@@ -18,6 +18,7 @@ namespace RozpoznawanieMatwarzy
             Routing.RegisterRoute("MainPage", typeof(StronaGlowna));
             Routing.RegisterRoute("RegisterPage", typeof(StronaRejestracji));
             Routing.RegisterRoute("RecognizePage", typeof(StronaRozpoznawania));
+            Routing.RegisterRoute("RaportPage", typeof(StronaRaportu)); 
 
             // Sprawdź czy użytkownik jest zalogowany
             SprawdzStatusLogowania();

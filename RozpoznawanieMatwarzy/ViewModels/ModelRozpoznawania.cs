@@ -1,9 +1,10 @@
-﻿
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using RozpoznawanieMatwarzy.Services;
 using RozpoznawanieMatwarzy.Models;
+using RozpoznawanieMatwarzy.Views;
+using System.Diagnostics;
 
 namespace RozpoznawanieMatwarzy.ViewModels
 {
@@ -25,6 +26,12 @@ namespace RozpoznawanieMatwarzy.ViewModels
         private bool _jestZastrzezony;
         private string _powidBezpieczenstwa;
 
+        private OdpowiedzRozpoznania _ostatniaRozpoznana;
+        private bool _czyMoznaOtworzycRaport;
+
+        // ✅ DODAJ POLE DLA COMMAND'Y
+        private ICommand _otworzRaportCommand;
+
         public ModelRozpoznawania()
         {
             _serwisApi = new SerwisApiTwarzy();
@@ -35,11 +42,17 @@ namespace RozpoznawanieMatwarzy.ViewModels
             RozpoznajCommand = new Command(async () => await Rozpoznaj(), () => CzyMoznaRozpoznac());
             OdczytajZNfcCommand = new Command(async () => await OdczytajZNfc());
 
+            // ✅ NAPRAWIONO: Przypisz do właściwości
+            OtworzRaportCommand = new Command(async () => await OtworzRaport(), () => CzyMoznaOtworzycRaport);
+
             KolorWyniku = Colors.Gray;
             KolorBezpieczenstwa = Colors.Green;
         }
 
-        // Properties
+        // ===========================
+        // PROPERTIES
+        // ===========================
+
         public ImageSource WybraneZdjecie
         {
             get => _wybraneZdjecie;
@@ -49,6 +62,38 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 OnPropertyChanged();
                 ((Command)RozpoznajCommand).ChangeCanExecute();
             }
+        }
+
+        public OdpowiedzRozpoznania OstatniaRozpoznana
+        {
+            get => _ostatniaRozpoznana;
+            set
+            {
+                _ostatniaRozpoznana = value;
+                OnPropertyChanged();
+                CzyMoznaOtworzycRaport = value != null;
+            }
+        }
+
+        public bool CzyMoznaOtworzycRaport
+        {
+            get => _czyMoznaOtworzycRaport;
+            set
+            {
+                _czyMoznaOtworzycRaport = value;
+                OnPropertyChanged();
+                // Zaktualizuj CanExecute dla command'y
+                if (OtworzRaportCommand is Command cmd)
+                {
+                    cmd.ChangeCanExecute();
+                }
+            }
+        }
+
+        public ICommand OtworzRaportCommand
+        {
+            get => _otworzRaportCommand;
+            private set => _otworzRaportCommand = value;
         }
 
         public bool JestZajety
@@ -157,7 +202,10 @@ namespace RozpoznawanieMatwarzy.ViewModels
         public ICommand RozpoznajCommand { get; }
         public ICommand OdczytajZNfcCommand { get; }
 
-        // Methods
+        // ===========================
+        // METHODS
+        // ===========================
+
         private async Task WybierzZGalerii()
         {
             try
@@ -220,11 +268,18 @@ namespace RozpoznawanieMatwarzy.ViewModels
             {
                 var odpowiedz = await _serwisApi.RozpoznajTwarzAsync(_zdjecieBytes);
 
+                // ✅ DODAJ DEBUGOWANIE
+                DebugLog("📥 Odpowiedź z serwera RozpoznajTwarzAsync:");
+                DebugLog($"   Rozpoznano: {odpowiedz.Rozpoznano}");
+                DebugLog($"   Pesel: '{odpowiedz.Pesel}'");
+                DebugLog($"   Imie: '{odpowiedz.Imie}'");
+                DebugLog($"   Nazwisko: '{odpowiedz.Nazwisko}'");
+                DebugLog($"   Pewnosc: {odpowiedz.Pewnosc}");
+                DebugLog($"   Wiadomosc: '{odpowiedz.Wiadomosc}'");
+
                 if (odpowiedz.Rozpoznano)
                 {
-                    // Pobierz status bezpieczeństwa
                     var securityStatus = await _serwisApi.PobierzStatusBezpieczenstwa(odpowiedz.Pesel);
-
                     await WyswietlWynikRozpoznania(odpowiedz, securityStatus);
                 }
                 else
@@ -232,15 +287,13 @@ namespace RozpoznawanieMatwarzy.ViewModels
                     Wynik = "❌ Nie rozpoznano";
                     KolorWyniku = Colors.Red;
                     StatusBezpieczenstwa = "";
-                    //await Application.Current.MainPage.DisplayAlert("Nie rozpoznano",
-                    //    odpowiedz.Wiadomosc ?? "Brak w bazie.", "OK");
                 }
             }
             catch (Exception ex)
             {
                 Wynik = $"❌ Błąd: {ex.Message}";
                 KolorWyniku = Colors.Red;
-                //await Application.Current.MainPage.DisplayAlert("Błąd", ex.Message, "OK");
+                DebugLog($"💥 Błąd rozpoznawania: {ex}");
             }
             finally
             {
@@ -250,46 +303,33 @@ namespace RozpoznawanieMatwarzy.ViewModels
 
         private async Task WyswietlWynikRozpoznania(OdpowiedzRozpoznania odpowiedz, StatusBezpieczenstwa securityStatus)
         {
-            // Ustaw informacje podstawowe
+            // ✅ Zapisz ostatnią rozpoznaną osobę
+            DebugLog("📋 Zapisuję ostatnią rozpoznaną osobę:");
+            DebugLog($"   Pesel: '{odpowiedz.Pesel}'");
+            DebugLog($"   Imie: '{odpowiedz.Imie}'");
+            DebugLog($"   Nazwisko: '{odpowiedz.Nazwisko}'");
+
+            OstatniaRozpoznana = odpowiedz;
+
             Wynik = $"✅ Rozpoznano: {odpowiedz.Imie} {odpowiedz.Nazwisko}\n" +
                     $"PESEL: {odpowiedz.Pesel}\n" +
                     $"Pewność: {odpowiedz.Pewnosc:P0}";
 
-            // Ustaw status bezpieczeństwa
             JestPoszukiwany = securityStatus.Poszukiwany;
             JestZastrzezony = securityStatus.Zastrzeżony;
             PowidBezpieczenstwa = securityStatus.Powód;
 
-            // Zmień kolor na podstawie statusu
             if (securityStatus.Poszukiwany)
             {
                 KolorWyniku = Colors.Red;
                 KolorBezpieczenstwa = Colors.Red;
                 StatusBezpieczenstwa = "🚨 POSZUKIWANY! ALERT BEZPIECZEŃSTWA! 🚨";
-
-                // Wyświetl ostrzeżenie
-                //await Application.Current.MainPage.DisplayAlert(
-                //    "⚠️ ALERTA BEZPIECZEŃSTWA!",
-                //    $"OSOBA POSZUKIWANA!\n\n" +
-                //    $"{odpowiedz.Imie} {odpowiedz.Nazwisko}\n" +
-                //    $"PESEL: {odpowiedz.Pesel}\n\n" +
-                //    $"Powód: {securityStatus.Powód}\n\n" +
-                //    $"",
-                //    "OK"
-                //);
             }
             else if (securityStatus.Zastrzeżony)
             {
                 KolorWyniku = Colors.Orange;
                 KolorBezpieczenstwa = Colors.Orange;
                 StatusBezpieczenstwa = "⚠️ ZASTRZEŻONY";
-
-                //await Application.Current.MainPage.DisplayAlert(
-                //    "⚠️ Osoba Zastrzeżona",
-                //    $"{odpowiedz.Imie} {odpowiedz.Nazwisko}\n" +
-                //    $"Powód: {securityStatus.Powód}",
-                //    "OK"
-                //);
             }
             else
             {
@@ -323,7 +363,6 @@ namespace RozpoznawanieMatwarzy.ViewModels
 
                 if (dane != null)
                 {
-                    // Pobierz status NFC
                     var nfcStatus = await _serwisApi.PobierzStatusNFC(dane.Pesel);
 
                     if (!nfcStatus.Aktywny)
@@ -338,9 +377,23 @@ namespace RozpoznawanieMatwarzy.ViewModels
                         return;
                     }
 
-                    // Pobierz status bezpieczeństwa
                     var securityStatus = await _serwisApi.PobierzStatusBezpieczenstwa(dane.Pesel);
                     ImageSource zdjecie = await PobierzZdjecieZSerwera(dane.Pesel);
+
+                    // ✅ NAPRAWIONO: Utwórz OdpowiedzRozpoznania z danych NFC
+                    var odpowiedz = new OdpowiedzRozpoznania
+                    {
+                        Pesel = dane.Pesel,
+                        Imie = dane.Imie,
+                        Nazwisko = dane.Nazwisko,
+                        DataUrodzenia = dane.DataUrodzenia,
+                        Plec = dane.Plec,
+                        Pewnosc = 1.0,  // 100% pewność z NFC
+                        Rozpoznano = true,
+                        Wiadomosc = "Odczytano z NFC"
+                    };
+
+                    OstatniaRozpoznana = odpowiedz;
 
                     Wynik = $"✅ Odczytano:\n{dane.Imie} {dane.Nazwisko}\n" +
                             $"PESEL: {dane.Pesel}";
@@ -348,7 +401,6 @@ namespace RozpoznawanieMatwarzy.ViewModels
                     JestPoszukiwany = securityStatus.Poszukiwany;
                     JestZastrzezony = securityStatus.Zastrzeżony;
 
-                    // Zmień kolor na podstawie statusu
                     if (securityStatus.Poszukiwany)
                     {
                         KolorWyniku = Colors.Red;
@@ -436,6 +488,39 @@ namespace RozpoznawanieMatwarzy.ViewModels
             return null;
         }
 
+        // ✅ DODAJ TĘ METODĘ
+        private async Task OtworzRaport()
+        {
+            if (OstatniaRozpoznana == null)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "❌ Brak danych",
+                    "Najpierw rozpoznaj osobę",
+                    "OK"
+                );
+                return;
+            }
+
+            try
+            {
+                DebugLog("🔄 Otwieranie raportu...");
+                DebugLog($"   OstatniaRozpoznana.Pesel: '{OstatniaRozpoznana.Pesel}'");
+                DebugLog($"   OstatniaRozpoznana.Imie: '{OstatniaRozpoznana.Imie}'");
+
+                RaportHelper.OstatniaRozpoznana = OstatniaRozpoznana;
+                RaportHelper.WybraneZdjecie = WybraneZdjecie;
+
+                DebugLog("✅ RaportHelper ustawiony, nawiguję do RaportPage");
+
+                await Shell.Current.GoToAsync("///RaportPage");
+            }
+            catch (Exception ex)
+            {
+                DebugLog($"💥 Błąd otwierania raportu: {ex}");
+                await Application.Current.MainPage.DisplayAlert("❌ Błąd", ex.Message, "OK");
+            }
+        }
+
         private bool CzyMoznaRozpoznac()
         {
             return !JestZajety && _zdjecieBytes != null;
@@ -446,6 +531,12 @@ namespace RozpoznawanieMatwarzy.ViewModels
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // ✅ DEBUGOWANIE
+        private void DebugLog(string message)
+        {
+            Debug.WriteLine($"[ModelRozpoznawania] {message}");
         }
     }
 }

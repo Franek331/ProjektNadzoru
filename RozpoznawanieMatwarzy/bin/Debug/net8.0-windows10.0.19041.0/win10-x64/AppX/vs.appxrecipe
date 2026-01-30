@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-01-29T18:17:38.971</Modified>
+      <Modified>2026-01-30T16:25:23.957</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-01-29T18:16:50.483</Modified>
+      <Modified>2026-01-30T16:25:23.793</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.runtimeconfig.json">
       <PackagePath>RozpoznawanieMatwarzy.runtimeconfig.json</PackagePath>
@@ -43,11 +43,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.dll">
       <PackagePath>RozpoznawanieMatwarzy.dll</PackagePath>
-      <Modified>2026-01-29T18:17:38.601</Modified>
+      <Modified>2026-01-30T16:25:22.550</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>RozpoznawanieMatwarzy.exe</PackagePath>
-      <Modified>2026-01-29T18:17:38.607</Modified>
+      <Modified>2026-01-30T16:25:22.593</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -287,7 +287,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.deps.json">
       <PackagePath>RozpoznawanieMatwarzy.deps.json</PackagePath>
-      <Modified>2026-01-29T18:16:50.286</Modified>
+      <Modified>2026-01-30T16:25:23.599</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>

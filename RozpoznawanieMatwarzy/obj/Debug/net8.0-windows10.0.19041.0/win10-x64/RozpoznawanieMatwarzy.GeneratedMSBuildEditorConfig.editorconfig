@@ -58,6 +58,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = RozpoznawanieMatwarzy.View
 build_metadata.AdditionalFiles.TargetPath = Views\StronaLogowania.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\StronaLogowania.xaml
 
+[C:/TwarzeNadzorowanie-2V/ProjektNadzoru/RozpoznawanieMatwarzy/Views/StronaRaportu.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = RozpoznawanieMatwarzy.Views.StronaRaportu.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\StronaRaportu.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\StronaRaportu.xaml
+
 [C:/TwarzeNadzorowanie-2V/ProjektNadzoru/RozpoznawanieMatwarzy/Views/StronaRejestracji.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = RozpoznawanieMatwarzy.Views.StronaRejestracji.xaml

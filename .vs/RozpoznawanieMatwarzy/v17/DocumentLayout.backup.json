@@ -3,6 +3,54 @@
   "WorkspaceRootPath": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\services\\serwisraportu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\services\\serwisraportu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronaraportu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronaraportu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\viewmodels\\modelrozpoznawania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\viewmodels\\modelrozpoznawania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\odpowiedzrozpoznania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\odpowiedzrozpoznania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\raport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\raport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\viewmodels\\modelraportu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\viewmodels\\modelraportu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\services\\serwisapitwarzy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\services\\serwisapitwarzy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\odpowiedzrejestracji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\odpowiedzrejestracji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\odpowiedzraportu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\odpowiedzraportu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\services\\raporthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\services\\raporthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronaraportu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronaraportu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronalogowania.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronalogowania.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,6 +63,34 @@
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronalogowania.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronalogowania.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronarozpoznawania.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronarozpoznawania.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\historiaraportu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\historiaraportu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\uzytkownikinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\uzytkownikinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronarejestracji.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronarejestracji.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\stale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\stale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\viewmodels\\modellogowania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\viewmodels\\modellogowania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,60 +99,24 @@
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\viewmodels\\modelrejestracji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\viewmodels\\modelrozpoznawania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\viewmodels\\modelrozpoznawania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronalogowania.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronalogowania.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\services\\serwisautoryzacji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\services\\serwisautoryzacji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\services\\serwisapitwarzy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\services\\serwisapitwarzy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronaglowna.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronaglowna.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronalogowania.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronalogowania.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\uzytkownikinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\uzytkownikinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\stale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\stale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronarejestracji.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronarejestracji.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\views\\stronarozpoznawania.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\views\\stronarozpoznawania.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\services\\serwisnfc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -91,16 +131,8 @@
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\statusnfc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\odpowiedzrejestracji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\odpowiedzrejestracji.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\danenfc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\danenfc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\odpowiedzrozpoznania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|solutionrelative:rozpoznawaniematwarzy\\models\\odpowiedzrozpoznania.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38A5C1D2-7455-4900-8F1C-E16AC1D174B2}|RozpoznawanieMatwarzy\\RozpoznawanieMatwarzy.csproj|c:\\twarzenadzorowanie-2v\\projektnadzoru\\rozpoznawaniematwarzy\\models\\osobazarejestrowana.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -137,7 +169,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -161,215 +193,176 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "StronaLogowania.xaml",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIoAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-29T16:54:15.961Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AppShell.xaml.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\AppShell.xaml.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\AppShell.xaml.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\AppShell.xaml.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\AppShell.xaml.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAcwD0AAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:20:21.398Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\App.xaml",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\App.xaml",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\App.xaml",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\App.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-20T12:17:35.777Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppShell.xaml",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\AppShell.xaml",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\AppShell.xaml",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\AppShell.xaml",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\AppShell.xaml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABkAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-20T12:19:19.581Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ModelRejestracji.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
-              "ViewState": "AgIAADEBAAAAAAAAAAA1wD8BAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:10:20.081Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ModelRozpoznawania.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
-              "ViewState": "AgIAAEcBAAAAAAAAAAAIwFcBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:11:10.653Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "SerwisApiTwarzy.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisApiTwarzy.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Services\\SerwisApiTwarzy.cs",
               "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisApiTwarzy.cs",
               "RelativeToolTip": "RozpoznawanieMatwarzy\\Services\\SerwisApiTwarzy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAmwAoBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T12:09:15.324Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ModelLogowania.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAAwGcAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-29T16:50:11.316Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "LoginResponse.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\LoginResponse.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\LoginResponse.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\LoginResponse.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\LoginResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-29T16:48:09.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\MauiProgram.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\MauiProgram.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\MauiProgram.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:20:34.17Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "SerwisAutoryzacji.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisAutoryzacji.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Services\\SerwisAutoryzacji.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisAutoryzacji.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Services\\SerwisAutoryzacji.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAQwNkAAAANAAAAAAAAAA==",
+              "Title": "RaportHelper.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\RaportHelper.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Services\\RaportHelper.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\RaportHelper.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Services\\RaportHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-29T16:49:19.226Z",
+              "WhenOpened": "2026-01-30T14:47:11.029Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\App.xaml.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\App.xaml.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\App.xaml.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "StronaRaportu.xaml.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRaportu.xaml.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaRaportu.xaml.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRaportu.xaml.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaRaportu.xaml.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAuwD4AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:19:27.368Z",
+              "WhenOpened": "2026-01-30T14:28:25.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SerwisRaportu.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisRaportu.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Services\\SerwisRaportu.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisRaportu.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Services\\SerwisRaportu.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAIwGYBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T14:21:48.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ModelRaportu.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRaportu.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\ViewModels\\ModelRaportu.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRaportu.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelRaportu.cs",
+              "ViewState": "AgIAAOgBAAAAAAAAAAAAwAICAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T14:21:14.194Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "UzytkownikInfo.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\UzytkownikInfo.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\UzytkownikInfo.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\UzytkownikInfo.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\UzytkownikInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-29T16:48:38.016Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AndroidManifest.xml",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Platforms\\Android\\AndroidManifest.xml",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Platforms\\Android\\AndroidManifest.xml",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Platforms\\Android\\AndroidManifest.xml",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Platforms\\Android\\AndroidManifest.xml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
-              "WhenOpened": "2026-01-20T12:28:18.142Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "StronaGlowna.xaml",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaGlowna.xaml",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaGlowna.xaml",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaGlowna.xaml",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaGlowna.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\AppShell.xaml",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\AppShell.xaml",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\AppShell.xaml",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\AppShell.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-29T18:03:55.982Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Stale.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Stale.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Stale.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Stale.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Stale.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:21:53.244Z",
+              "WhenOpened": "2026-01-20T12:19:19.581Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
+              "Title": "AppShell.xaml.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\AppShell.xaml.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\AppShell.xaml.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\AppShell.xaml.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\AppShell.xaml.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBQAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:20:21.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Raport.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\Raport.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\Raport.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\Raport.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\Raport.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T14:20:01.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ModelRozpoznawania.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
+              "ViewState": "AgIAAMkAAAAAAAAAAAA6wOUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:11:10.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OdpowiedzRozpoznania.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRozpoznania.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRozpoznania.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRozpoznania.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRozpoznania.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:08:05.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OdpowiedzRejestracji.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRejestracji.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRejestracji.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRejestracji.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRejestracji.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:07:51.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OdpowiedzRaportu.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRaportu.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRaportu.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRaportu.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRaportu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T14:20:24.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StronaRaportu.xaml",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRaportu.xaml",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaRaportu.xaml",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRaportu.xaml",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaRaportu.xaml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAswIoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-30T14:28:19.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "StronaLogowania.xaml.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml.cs",
@@ -382,45 +375,195 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "StronaRejestracji.xaml",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwDMAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "StronaLogowania.xaml",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaLogowania.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-20T12:14:13.157Z",
+              "WhenOpened": "2026-01-29T16:54:15.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "AndroidManifest.xml",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Platforms\\Android\\AndroidManifest.xml",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Platforms\\Android\\AndroidManifest.xml",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Platforms\\Android\\AndroidManifest.xml",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Platforms\\Android\\AndroidManifest.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-01-20T12:28:18.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UzytkownikInfo.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\UzytkownikInfo.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\UzytkownikInfo.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\UzytkownikInfo.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\UzytkownikInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T16:48:38.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\App.xaml.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\App.xaml.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\App.xaml.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:19:27.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\MauiProgram.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\MauiProgram.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\MauiProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:20:34.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
+              "Title": "HistoriaRaportu.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\HistoriaRaportu.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\HistoriaRaportu.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\HistoriaRaportu.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\HistoriaRaportu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T14:20:44.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SerwisAutoryzacji.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisAutoryzacji.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Services\\SerwisAutoryzacji.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisAutoryzacji.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Services\\SerwisAutoryzacji.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAQwNkAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T16:49:19.226Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "StronaRozpoznawania.xaml",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRozpoznawania.xaml",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaRozpoznawania.xaml",
               "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRozpoznawania.xaml",
               "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaRozpoznawania.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAYwKMAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-01-20T12:18:07.266Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "OdpowiedzRejestracji.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRejestracji.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRejestracji.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRejestracji.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRejestracji.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 27,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\LoginResponse.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\LoginResponse.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:07:51.077Z"
+              "WhenOpened": "2026-01-29T16:48:09.536Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 22,
+              "Title": "ModelLogowania.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAAwGcAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-29T16:50:11.316Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Stale.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Stale.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Stale.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Stale.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Stale.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:21:53.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "StronaRejestracji.xaml",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwE0AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-20T12:14:13.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ModelRejestracji.cs",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
+              "ViewState": "AgIAADEBAAAAAAAAAAA1wD8BAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-20T12:10:20.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\App.xaml",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\App.xaml",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\App.xaml",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\App.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-20T12:17:35.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "StronaGlowna.xaml",
+              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaGlowna.xaml",
+              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaGlowna.xaml",
+              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaGlowna.xaml",
+              "RelativeToolTip": "RozpoznawanieMatwarzy\\Views\\StronaGlowna.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-29T18:03:55.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
               "Title": "OsobaZarejestrowana.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OsobaZarejestrowana.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\OsobaZarejestrowana.cs",
@@ -432,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 29,
               "Title": "SerwisNFC.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Services\\SerwisNFC.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Services\\SerwisNFC.cs",
@@ -444,7 +587,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 34,
               "Title": "MainActivity.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Platforms\\Android\\MainActivity.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Platforms\\Android\\MainActivity.cs",
@@ -456,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 31,
               "Title": "StatusNFC.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\StatusNFC.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\StatusNFC.cs",
@@ -468,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 30,
               "Title": "StatusBezpieczenstwa.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\StatusBezpieczenstwa.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\StatusBezpieczenstwa.cs",
@@ -480,19 +623,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "OdpowiedzRozpoznania.cs",
-              "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRozpoznania.cs",
-              "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRozpoznania.cs",
-              "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\OdpowiedzRozpoznania.cs",
-              "RelativeToolTip": "RozpoznawanieMatwarzy\\Models\\OdpowiedzRozpoznania.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:08:05.94Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 32,
               "Title": "DaneNFC.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Models\\DaneNFC.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Models\\DaneNFC.cs",
@@ -504,7 +635,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 35,
               "Title": "MainApplication.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Platforms\\Android\\MainApplication.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Platforms\\Android\\MainApplication.cs",
@@ -516,7 +647,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 38,
               "Title": "Views_StronaRejestracji.xaml.sg.cs",
               "DocumentMoniker": "C:\\Users\\Franio\\AppData\\Local\\Temp\\.vsdbgsrc\\59578356d1c52688c4ea696a7be271b4b3f92fbc\\Views_StronaRejestracji.xaml.sg.cs",
               "RelativeDocumentMoniker": "..\\..\\Users\\Franio\\AppData\\Local\\Temp\\.vsdbgsrc\\59578356d1c52688c4ea696a7be271b4b3f92fbc\\Views_StronaRejestracji.xaml.sg.cs",
@@ -529,7 +660,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 36,
               "Title": "IsNotNullOrEmptyConverter.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Converters\\IsNotNullOrEmptyConverter.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Converters\\IsNotNullOrEmptyConverter.cs",
@@ -541,7 +672,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 37,
               "Title": "network_security_config.xml",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Platforms\\Android\\xml\\network_security_config.xml",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Platforms\\Android\\xml\\network_security_config.xml",
@@ -553,7 +684,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 39,
               "Title": "StronaRejestracji.xaml.cs",
               "DocumentMoniker": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml.cs",
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\Views\\StronaRejestracji.xaml.cs",

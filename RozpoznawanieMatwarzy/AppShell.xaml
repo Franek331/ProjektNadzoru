@@ -26,6 +26,10 @@
         <ShellContent ContentTemplate="{DataTemplate views:StronaRozpoznawania}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="📸 Raport" Route="RaportPage">
+        <ShellContent ContentTemplate="{DataTemplate views:StronaRaportu}" />
+    </FlyoutItem>
+
     <!-- Wylogowanie -->
     <MenuItem Text="🚪 Wyloguj" Clicked="OnWylogujClicked" />
 

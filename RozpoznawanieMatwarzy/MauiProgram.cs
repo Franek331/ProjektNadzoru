@@ -23,6 +23,8 @@ namespace RozpoznawanieMatwarzy
             builder.Services.AddTransient<StronaRejestracji>();
             builder.Services.AddTransient<StronaRozpoznawania>();
             builder.Services.AddTransient<StronaLogowania>();
+            builder.Services.AddTransient<StronaRaportu>();
+
 
 
 

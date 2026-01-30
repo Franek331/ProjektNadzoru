@@ -143,6 +143,27 @@
                            FontSize="11" TextColor="#FF9800" FontAttributes="Italic"
                            HorizontalOptions="Center" Margin="0,5,0,0" />
 
+                    <BoxView Color="#DDD" HeightRequest="2" Margin="0,15,0,15" />
+
+                    <!-- PRZYCISK DO RAPORTU - NOWY! -->
+                    <Button Text="📋 OTWÓRZ RAPORT" 
+                        Command="{Binding OtworzRaportCommand}"
+                        BackgroundColor="#FF5722" 
+                        TextColor="White" 
+                        FontSize="16" 
+                        FontAttributes="Bold" 
+                        HeightRequest="55" 
+                        CornerRadius="12" 
+                        Padding="15"
+                        IsEnabled="{Binding CzyMoznaOtworzycRaport}" />
+
+                    <Label Text="💡 Wskazówka: Kliknij RAPORT aby utworzyć dokument z danymi rozpoznanej osoby" 
+                       FontSize="11" 
+                       TextColor="#FF5722" 
+                       FontAttributes="Italic"
+                       HorizontalOptions="Center" 
+                       Margin="0,5,0,0" />          
+
                 </VerticalStackLayout>
             </ScrollView>
         </Border>

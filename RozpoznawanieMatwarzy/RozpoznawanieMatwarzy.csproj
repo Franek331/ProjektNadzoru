@@ -74,6 +74,9 @@
 	  <MauiXaml Update="Views\StronaLogowania.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\StronaRaportu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\StronaRejestracji.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

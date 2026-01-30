@@ -4,6 +4,7 @@ namespace RozpoznawanieMatwarzy.Models
 {
     public class OdpowiedzRozpoznania
     {
+        [System.Text.Json.Serialization.JsonPropertyName("Pesel")]
         public string Pesel { get; set; }  // ID - PESEL
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
