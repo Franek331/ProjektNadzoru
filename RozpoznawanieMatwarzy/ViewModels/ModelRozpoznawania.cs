@@ -313,7 +313,7 @@ namespace RozpoznawanieMatwarzy.ViewModels
 
             Wynik = $"✅ Rozpoznano: {odpowiedz.Imie} {odpowiedz.Nazwisko}\n" +
                     $"PESEL: {odpowiedz.Pesel}\n" +
-                    $"Pewność: {odpowiedz.Pewnosc:P0}";
+                    $"";
 
             JestPoszukiwany = securityStatus.Poszukiwany;
             JestZastrzezony = securityStatus.Zastrzeżony;
@@ -323,7 +323,7 @@ namespace RozpoznawanieMatwarzy.ViewModels
             {
                 KolorWyniku = Colors.Red;
                 KolorBezpieczenstwa = Colors.Red;
-                StatusBezpieczenstwa = "🚨 POSZUKIWANY! ALERT BEZPIECZEŃSTWA! 🚨";
+                StatusBezpieczenstwa = "🚨 POSZUKIWANY!🚨";
             }
             else if (securityStatus.Zastrzeżony)
             {

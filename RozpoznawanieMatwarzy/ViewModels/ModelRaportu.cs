@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Reflection;
 using System.Windows.Input;
 using RozpoznawanieMatwarzy.Models;
 using RozpoznawanieMatwarzy.Services;
@@ -12,6 +10,32 @@ namespace RozpoznawanieMatwarzy.ViewModels
     public class ModelRaportu : INotifyPropertyChanged
     {
         private readonly SerwisRaportu _serwisRaportu;
+        private readonly SerwisAutoryzacji _serwisAutoryzacji;  // ✅ NOWE
+        private static readonly Random _random = new Random();
+        private static readonly object _lockObject = new object();
+        private static HashSet<long> _wygenerowaneNumery = new HashSet<long>();
+
+        // ✅ Właściwości operatora (wystawiającego)
+        private string _operatorImie;
+        public string OperatorImie
+        {
+            get => _operatorImie;
+            set { _operatorImie = value; OnPropertyChanged(nameof(OperatorImie)); }
+        }
+
+        private string _operatorNazwisko;
+        public string OperatorNazwisko
+        {
+            get => _operatorNazwisko;
+            set { _operatorNazwisko = value; OnPropertyChanged(nameof(OperatorNazwisko)); }
+        }
+
+        private string _operatorPelneImie;
+        public string OperatorPelneImie
+        {
+            get => _operatorPelneImie;
+            set { _operatorPelneImie = value; OnPropertyChanged(nameof(OperatorPelneImie)); }
+        }
 
         // ✅ Właściwości bindowane
         private string _pelneImie;
@@ -67,7 +91,21 @@ namespace RozpoznawanieMatwarzy.ViewModels
         public bool CzyMandat
         {
             get => _czyMandat;
-            set { _czyMandat = value; OnPropertyChanged(nameof(CzyMandat)); }
+            set
+            {
+                _czyMandat = value;
+                OnPropertyChanged(nameof(CzyMandat));
+
+                // Automatycznie generuj numer mandatu gdy zaznaczone
+                if (_czyMandat && string.IsNullOrEmpty(_numerMandata))
+                {
+                    NumerMandata = GenerujNumerMandata();
+                }
+                else if (!_czyMandat)
+                {
+                    NumerMandata = "";
+                }
+            }
         }
 
         private string _kwotaMandatu;
@@ -144,6 +182,7 @@ namespace RozpoznawanieMatwarzy.ViewModels
         public ICommand ZapiszRaportCommand { get; }
         public ICommand WyslijRaportCommand { get; }
         public ICommand WyczyscCommand { get; }
+        public ICommand GenerujNowyNumerCommand { get; }
 
         // INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
@@ -151,6 +190,7 @@ namespace RozpoznawanieMatwarzy.ViewModels
         public ModelRaportu()
         {
             _serwisRaportu = new SerwisRaportu();
+            _serwisAutoryzacji = new SerwisAutoryzacji();  // ✅ NOWE
 
             // Inicjalizuj listy
             ListaTypowMandatow = new ObservableCollection<string>
@@ -177,6 +217,7 @@ namespace RozpoznawanieMatwarzy.ViewModels
             ZapiszRaportCommand = new Command(async () => await ZapiszRaport());
             WyslijRaportCommand = new Command(async () => await WyslijRaport());
             WyczyscCommand = new Command(Wyczysc);
+            GenerujNowyNumerCommand = new Command(() => GenerujNowyNumerMandata());
 
             // Domyślne wartości
             CzyMandat = false;
@@ -184,6 +225,152 @@ namespace RozpoznawanieMatwarzy.ViewModels
             KolorStatusu = Colors.Black;
             CzyWidocznyStatus = false;
             JestZajety = false;
+
+            // ✅ ZAŁADUJ DANE OPERATORA - ZMIENIONE
+            ZaladujDaneOperatora();
+        }
+
+        /// <summary>
+        /// Załaduj dane zalogowanego operatora z SerwisAutoryzacji
+        /// </summary>
+        private async void ZaladujDaneOperatora()
+        {
+            try
+            {
+                System.Diagnostics.Debug.WriteLine("👤 ZaladujDaneOperatora - START");
+
+                // ✅ Pobierz dane z SerwisAutoryzacji
+                var imie = await _serwisAutoryzacji.PobierzOperatoraImieAsync();
+                var nazwisko = await _serwisAutoryzacji.PobierzOperatoraNazwiskoAsync();
+
+                System.Diagnostics.Debug.WriteLine($"👤 Pobrane dane: {imie} {nazwisko}");
+
+                if (!string.IsNullOrEmpty(imie) && !string.IsNullOrEmpty(nazwisko))
+                {
+                    OperatorImie = imie;
+                    OperatorNazwisko = nazwisko;
+                    OperatorPelneImie = $"{imie} {nazwisko}";
+                    System.Diagnostics.Debug.WriteLine($"✅ Dane operatora załadowane: {OperatorPelneImie}");
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("⚠️ Brak danych operatora - fallback do API");
+                    // Fallback - spróbuj pobrać z API verify-token
+                    await PobierzDaneOperatoraZAPI();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"❌ Błąd ładowania danych operatora: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Pobierz dane operatora z API verify-token (fallback)
+        /// </summary>
+        private async Task PobierzDaneOperatoraZAPI()
+        {
+            try
+            {
+                System.Diagnostics.Debug.WriteLine("🔐 PobierzDaneOperatoraZAPI - START");
+
+                var token = await _serwisAutoryzacji.PobierzTokenAsync();
+                if (string.IsNullOrEmpty(token))
+                {
+                    System.Diagnostics.Debug.WriteLine("❌ Brak tokenu");
+                    return;
+                }
+
+                var httpClient = new HttpClient
+                {
+                    BaseAddress = new Uri(Stale.URL_BAZY),
+                    Timeout = TimeSpan.FromSeconds(10)
+                };
+
+                httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
+
+                var response = await httpClient.GetAsync("/api/verify-token");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    using (var doc = System.Text.Json.JsonDocument.Parse(json))
+                    {
+                        var element = doc.RootElement;
+                        if (element.TryGetProperty("Uzytkownik", out var uzytkownik))
+                        {
+                            if (uzytkownik.TryGetProperty("FirstName", out var firstName) &&
+                                uzytkownik.TryGetProperty("LastName", out var lastName))
+                            {
+                                OperatorImie = firstName.GetString() ?? "";
+                                OperatorNazwisko = lastName.GetString() ?? "";
+                                OperatorPelneImie = $"{OperatorImie} {OperatorNazwisko}".Trim();
+
+                                System.Diagnostics.Debug.WriteLine($"✅ Dane z API załadowane: {OperatorPelneImie}");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine($"❌ API error: {response.StatusCode}");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"❌ Błąd pobierania z API: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Generuje unikalny numer mandatu w zakresie 1-10,000,000,000
+        /// </summary>
+        private string GenerujNumerMandata()
+        {
+            lock (_lockObject)
+            {
+                long numer;
+                int prob = 0;
+                const int maxProb = 1000;
+
+                do
+                {
+                    numer = _random.NextInt64(1, 10000000001L);
+                    prob++;
+
+                    if (prob >= maxProb)
+                    {
+                        numer = DateTime.Now.Ticks % 10000000000L + 1;
+                        break;
+                    }
+                }
+                while (_wygenerowaneNumery.Contains(numer));
+
+                _wygenerowaneNumery.Add(numer);
+                return numer.ToString("D11");
+            }
+        }
+
+        /// <summary>
+        /// Generuje nowy numer mandatu na żądanie użytkownika
+        /// </summary>
+        private void GenerujNowyNumerMandata()
+        {
+            if (CzyMandat)
+            {
+                NumerMandata = GenerujNumerMandata();
+                Komunikat = "🔄 Wygenerowano nowy numer mandatu";
+                KolorStatusu = Colors.Blue;
+                CzyWidocznyStatus = true;
+
+                Task.Delay(2000).ContinueWith(_ =>
+                {
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        CzyWidocznyStatus = false;
+                    });
+                });
+            }
         }
 
         /// <summary>
@@ -193,24 +380,17 @@ namespace RozpoznawanieMatwarzy.ViewModels
         {
             try
             {
-                DebugLog("🔄 Wczytywanie danych osoby...");
-                DebugLog($"   Typ obiektu: {osoba?.GetType().Name}");
-
                 if (osoba == null)
                 {
-                    DebugLog("⚠️ Osoba jest null!");
                     Komunikat = "❌ Błąd: Brak danych osoby";
                     KolorStatusu = Colors.Red;
                     CzyWidocznyStatus = true;
                     return;
                 }
 
-                // Pobranie właściwości przez reflection
                 var type = osoba.GetType();
                 var properties = type.GetProperties();
-                DebugLog($"   Właściwości dostępne: {string.Join(", ", properties.Select(p => p.Name))}");
 
-                // ✅ PROSTSZE - bez BindingFlags, bezpośrednio po nazwach
                 object peselObj = null;
                 object imieObj = null;
                 object nazwiskoObj = null;
@@ -220,33 +400,25 @@ namespace RozpoznawanieMatwarzy.ViewModels
 
                 foreach (var prop in properties)
                 {
-                    DebugLog($"   Checking property: {prop.Name}");
-
                     switch (prop.Name)
                     {
                         case "Pesel":
                             peselObj = prop.GetValue(osoba);
-                            DebugLog($"     Pesel found: '{peselObj}'");
                             break;
                         case "Imie":
                             imieObj = prop.GetValue(osoba);
-                            DebugLog($"     Imie found: '{imieObj}'");
                             break;
                         case "Nazwisko":
                             nazwiskoObj = prop.GetValue(osoba);
-                            DebugLog($"     Nazwisko found: '{nazwiskoObj}'");
                             break;
                         case "DataUrodzenia":
                             dataObj = prop.GetValue(osoba);
-                            DebugLog($"     DataUrodzenia found: '{dataObj}'");
                             break;
                         case "Plec":
                             plecObj = prop.GetValue(osoba);
-                            DebugLog($"     Plec found: '{plecObj}'");
                             break;
                         case "Pewnosc":
                             pewnoscObj = prop.GetValue(osoba);
-                            DebugLog($"     Pewnosc found: '{pewnoscObj}'");
                             break;
                     }
                 }
@@ -266,19 +438,8 @@ namespace RozpoznawanieMatwarzy.ViewModels
                     }
                 }
 
-                DebugLog($"✅ Dane wczytane:");
-                DebugLog($"   PESEL: '{Pesel}' (pustePESEL: {string.IsNullOrWhiteSpace(Pesel)})");
-                DebugLog($"   Imie: '{imie}'");
-                DebugLog($"   Nazwisko: '{nazwisko}'");
-                DebugLog($"   Pełne Imię: '{PelneImie}'");
-                DebugLog($"   Data urodzenia: '{DataUrodzenia}'");
-                DebugLog($"   Płeć: '{Plec}'");
-                DebugLog($"   Pewność: {Pewnosc:P}");
-
-                // ✅ WALIDACJA
                 if (string.IsNullOrWhiteSpace(Pesel))
                 {
-                    DebugLog("⚠️⚠️⚠️ PESEL jest pusty! To jest główny problem!");
                     Komunikat = "❌ KRYTYCZNY: PESEL nie został wczytany!";
                     KolorStatusu = Colors.Red;
                     CzyWidocznyStatus = true;
@@ -290,7 +451,6 @@ namespace RozpoznawanieMatwarzy.ViewModels
             }
             catch (Exception ex)
             {
-                DebugLog($"💥 Błąd wczytywania danych: {ex.Message}\n{ex.StackTrace}");
                 Komunikat = $"❌ Błąd: {ex.Message}";
                 KolorStatusu = Colors.Red;
                 CzyWidocznyStatus = true;
@@ -302,28 +462,18 @@ namespace RozpoznawanieMatwarzy.ViewModels
         /// </summary>
         private Raport GenerujRaport()
         {
-            DebugLog($"🔧 GenerujRaport() START");
-            DebugLog($"   this.Pesel: '{this.Pesel}'");
-            DebugLog($"   this.PelneImie: '{this.PelneImie}'");
-
             var czasiImieNazwisko = PelneImie?.Split(' ');
             string imie = czasiImieNazwisko?.Length > 0 ? czasiImieNazwisko[0] : "BRAK";
             string nazwisko = czasiImieNazwisko?.Length > 1
                 ? string.Join(" ", czasiImieNazwisko.Skip(1))
                 : "BRAK";
 
-            // ✅ Konwersja DataUrodzenia z string na DateTime
             DateTime dataUrodzenia = DateTime.MinValue;
             if (!string.IsNullOrWhiteSpace(this.DataUrodzenia))
             {
-                // Spróbuj różne formaty
                 if (DateTime.TryParse(this.DataUrodzenia, out var parsedDate))
                 {
                     dataUrodzenia = parsedDate;
-                }
-                else
-                {
-                    DebugLog($"⚠️ Nie można sparsować datę: {this.DataUrodzenia}");
                 }
             }
 
@@ -333,7 +483,7 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 Pesel = this.Pesel,
                 Imie = imie,
                 Nazwisko = nazwisko,
-                DataUrodzenia = dataUrodzenia,  // ✅ Teraz DateTime
+                DataUrodzenia = dataUrodzenia,
                 Plec = this.Plec,
                 Pewnosc = this.Pewnosc,
                 Notatka = this.Notatka ?? "",
@@ -346,14 +496,12 @@ namespace RozpoznawanieMatwarzy.ViewModels
                     ? this.NumerMandata
                     : null,
                 TypMandata = this.TypMandata ?? "",
-                StatusMandata = this.StatusMandata ?? "Do wysłania"
+                StatusMandata = this.StatusMandata ?? "Do wysłania",
+                // ✅ Dodaj dane operatora
+                OperatorImie = this.OperatorImie ?? "",
+                OperatorNazwisko = this.OperatorNazwisko ?? "",
+                Operator = this.OperatorPelneImie ?? ""
             };
-
-            DebugLog($"🔧 GenerujRaport() - RAPORT CREATED:");
-            DebugLog($"   raport.Pesel: '{raport.Pesel}'");
-            DebugLog($"   raport.Imie: '{raport.Imie}'");
-            DebugLog($"   raport.Nazwisko: '{raport.Nazwisko}'");
-            DebugLog($"🔧 GenerujRaport() END");
 
             return raport;
         }
@@ -370,18 +518,28 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 JestZajety = true;
                 CzyWidocznyStatus = false;
 
-                // ✅ Walidacja
                 if (string.IsNullOrWhiteSpace(Pesel))
                 {
                     Komunikat = "❌ Błąd: Brakuje PESELu - data nie została załadowana prawidłowo";
                     KolorStatusu = Colors.Red;
                     CzyWidocznyStatus = true;
-                    DebugLog("⚠️ PESEL jest pusty!");
                     return;
                 }
 
+                if (string.IsNullOrWhiteSpace(OperatorImie) || string.IsNullOrWhiteSpace(OperatorNazwisko))
+                {
+                    Komunikat = "❌ Błąd: Brakuje danych operatora - Zaloguj się ponownie";
+                    KolorStatusu = Colors.Red;
+                    CzyWidocznyStatus = true;
+                    return;
+                }
+
+                if (CzyMandat && string.IsNullOrEmpty(NumerMandata))
+                {
+                    NumerMandata = GenerujNumerMandata();
+                }
+
                 var raport = GenerujRaport();
-                DebugLog($"💾 Zapisuję raport: PESEL={raport.Pesel}, Imie={raport.Imie}");
 
                 var wynik = await _serwisRaportu.ZapiszRaportAsync(raport);
 
@@ -403,7 +561,6 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 Komunikat = $"❌ Wyjątek: {ex.Message}";
                 KolorStatusu = Colors.Red;
                 CzyWidocznyStatus = true;
-                DebugLog($"💥 {ex}");
             }
             finally
             {
@@ -423,18 +580,28 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 JestZajety = true;
                 CzyWidocznyStatus = false;
 
-                // ✅ Walidacja
                 if (string.IsNullOrWhiteSpace(Pesel))
                 {
                     Komunikat = "❌ Błąd: Brakuje PESELu\n\nOsoby nie została załadowana prawidłowo.\nWróć do rozpoznawania twarzy.";
                     KolorStatusu = Colors.Red;
                     CzyWidocznyStatus = true;
-                    DebugLog("⚠️ Wysyłanie zablokowane - brak PESELu");
                     return;
                 }
 
+                if (string.IsNullOrWhiteSpace(OperatorImie) || string.IsNullOrWhiteSpace(OperatorNazwisko))
+                {
+                    Komunikat = "❌ Błąd: Brakuje danych operatora\n\nZaloguj się ponownie do aplikacji.";
+                    KolorStatusu = Colors.Red;
+                    CzyWidocznyStatus = true;
+                    return;
+                }
+
+                if (CzyMandat && string.IsNullOrEmpty(NumerMandata))
+                {
+                    NumerMandata = GenerujNumerMandata();
+                }
+
                 var raport = GenerujRaport();
-                DebugLog($"📤 Wysyłam raport: PESEL={raport.Pesel}, Imie={raport.Imie}, CzyMandat={raport.CzyMandat}");
 
                 var wynik = await _serwisRaportu.WyslijRaportAsync(raport);
 
@@ -443,7 +610,6 @@ namespace RozpoznawanieMatwarzy.ViewModels
                     Komunikat = "✅ Raport wysłany do systemu!\n\nMandat został zarejestrowany.";
                     KolorStatusu = Colors.Green;
 
-                    // Wyczyść formularz po 1.5 sekundy
                     MainThread.BeginInvokeOnMainThread(async () =>
                     {
                         await Task.Delay(1500);
@@ -454,7 +620,6 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 {
                     Komunikat = wynik.Wiadomosc;
                     KolorStatusu = Colors.Red;
-                    DebugLog($"❌ Wysyłanie nie powiodło się: {wynik.Wiadomosc}");
                 }
 
                 CzyWidocznyStatus = true;
@@ -464,7 +629,6 @@ namespace RozpoznawanieMatwarzy.ViewModels
                 Komunikat = $"❌ Błąd: {ex.Message}";
                 KolorStatusu = Colors.Red;
                 CzyWidocznyStatus = true;
-                DebugLog($"💥 Wyjątek: {ex}");
             }
             finally
             {
@@ -477,8 +641,6 @@ namespace RozpoznawanieMatwarzy.ViewModels
         /// </summary>
         private void Wyczysc()
         {
-            DebugLog("🧹 Czyszczę formularz");
-
             PelneImie = "";
             Pesel = "";
             DataUrodzenia = "";
@@ -496,20 +658,9 @@ namespace RozpoznawanieMatwarzy.ViewModels
             CzyWidocznyStatus = false;
         }
 
-        /// <summary>
-        /// OnPropertyChanged
-        /// </summary>
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        /// <summary>
-        /// Debugowanie
-        /// </summary>
-        private void DebugLog(string message)
-        {
-            Debug.WriteLine($"[ModelRaportu] {message}");
         }
     }
 }

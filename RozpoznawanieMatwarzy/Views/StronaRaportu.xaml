@@ -17,7 +17,7 @@
                     <Label Text="{Binding PelneImie}" FontSize="18" FontAttributes="Bold" TextColor="#333" />
                     <Label Text="{Binding Pesel, StringFormat='PESEL: {0}'}" FontSize="12" TextColor="#666" />
                     <Label Text="{Binding DataUrodzenia, StringFormat='Data ur.: {0:dd.MM.yyyy}'}" FontSize="12" TextColor="#666" />
-                    <Label Text="{Binding Pewnosc, StringFormat='Pewność: {0:P0}'}" FontSize="12" TextColor="#FF9800" FontAttributes="Bold" />
+                    <Label Text="{Binding StringFormat='Pewność: {0:P0}'}" FontSize="12" TextColor="#FF9800" FontAttributes="Bold" />
                 </VerticalStackLayout>
             </Frame>
 

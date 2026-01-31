@@ -9,7 +9,7 @@ namespace RozpoznawanieMatwarzy.Services
     public class SerwisRaportu
     {
         private readonly HttpClient _httpClient;
-
+        private string _jwtToken = "";  
         public SerwisRaportu()
         {
             _httpClient = new HttpClient
@@ -22,6 +22,16 @@ namespace RozpoznawanieMatwarzy.Services
         /// <summary>
         /// Zapisz raport lokalnie
         /// </summary>
+        /// 
+        public void UstawToken(string token)
+    {
+        _jwtToken = token;
+        if (!string.IsNullOrEmpty(token))
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = 
+                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+        }
+    }
         public async Task<OdpowiedzRaportu> ZapiszRaportAsync(Raport raport)
         {
             try

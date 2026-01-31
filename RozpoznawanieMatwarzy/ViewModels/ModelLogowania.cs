@@ -100,7 +100,7 @@ namespace RozpoznawanieMatwarzy.ViewModels
                     KolorKomunikatu = Colors.Green;
 
                     // Przejdź do głównej strony aplikacji
-                    await Task.Delay(500); // Krótkie opóźnienie żeby użytkownik widział komunikat
+                    await Task.Delay(1000); // Krótkie opóźnienie żeby użytkownik widział komunikat
                     await Shell.Current.GoToAsync("///RegisterPage");
                 }
                 else

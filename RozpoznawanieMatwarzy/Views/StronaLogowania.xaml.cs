@@ -5,5 +5,6 @@ public partial class StronaLogowania : ContentPage
 	public StronaLogowania()
 	{
 		InitializeComponent();
+
 	}
 }

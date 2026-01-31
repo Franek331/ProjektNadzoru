@@ -13,6 +13,9 @@ namespace RozpoznawanieMatwarzy.Services
         private readonly HttpClient _httpClient;
         private const string TOKEN_KEY = "1745618756195nfcsjnjbnv";
         private const string USERNAME_KEY = "username";
+        // ✅ NOWE KLUCZE DO PRZECHOWYWANIA DANYCH OPERATORA
+        private const string OPERATOR_IMIE_KEY = "operator_imie";
+        private const string OPERATOR_NAZWISKO_KEY = "operator_nazwisko";
 
         public SerwisAutoryzacji()
         {
@@ -36,10 +39,6 @@ namespace RozpoznawanieMatwarzy.Services
             {
                 System.Diagnostics.Debug.WriteLine($"📝 ZalogujAsync - username: {username}");
 
-                // ❌ PROBLEM: Jeśli BaseAddress ma "http://localhost:5000/"
-                // i wysyłasz "/api/login", może być problem
-                // ROZWIĄZANIE: Upewnij się że ścieżka jest poprawna
-
                 var loginData = new
                 {
                     username = username,
@@ -49,7 +48,6 @@ namespace RozpoznawanieMatwarzy.Services
                 System.Diagnostics.Debug.WriteLine($"📤 Wysyłam POST do: {_httpClient.BaseAddress}api/login");
                 System.Diagnostics.Debug.WriteLine($"📤 Dane: {System.Text.Json.JsonSerializer.Serialize(loginData)}");
 
-                // ✅ ZMIANA: Nie zaczynaj ze "/" bo BaseAddress też może mieć "/"
                 var response = await _httpClient.PostAsJsonAsync("api/login", loginData);
 
                 System.Diagnostics.Debug.WriteLine($"📥 Status code: {response.StatusCode}");
@@ -69,11 +67,31 @@ namespace RozpoznawanieMatwarzy.Services
 
                         if (result != null && result.Sukces)
                         {
-                            // Zapisz token i nazwę użytkownika
-                            System.Diagnostics.Debug.WriteLine("💾 Zapisuję token do SecureStorage...");
+                            // ✅ NOWE: Zapisz token i dane użytkownika
+                            System.Diagnostics.Debug.WriteLine("💾 Zapisuję dane do SecureStorage...");
 
                             await SecureStorage.SetAsync(TOKEN_KEY, result.Token);
                             await SecureStorage.SetAsync(USERNAME_KEY, username);
+
+                            // ✅ KRYTYCZNE: Zapisz imię i nazwisko operatora
+                            if (result.Uzytkownik != null)
+                            {
+                                var imie = result.Uzytkownik.FirstName ?? "";
+                                var nazwisko = result.Uzytkownik.LastName ?? "";
+
+                                System.Diagnostics.Debug.WriteLine($"👤 Zapisuję operatora:");
+                                System.Diagnostics.Debug.WriteLine($"   Imię: {imie}");
+                                System.Diagnostics.Debug.WriteLine($"   Nazwisko: {nazwisko}");
+
+                                await SecureStorage.SetAsync(OPERATOR_IMIE_KEY, imie);
+                                await SecureStorage.SetAsync(OPERATOR_NAZWISKO_KEY, nazwisko);
+
+                                System.Diagnostics.Debug.WriteLine("✅ Dane operatora zapisane");
+                            }
+                            else
+                            {
+                                System.Diagnostics.Debug.WriteLine("⚠️ Brak obiektu Uzytkownik w odpowiedzi");
+                            }
 
                             System.Diagnostics.Debug.WriteLine("✅ Token zapisany");
                         }
@@ -163,6 +181,37 @@ namespace RozpoznawanieMatwarzy.Services
             }
         }
 
+        // ✅ NOWE: Metody do pobierania danych operatora
+        public async Task<string> PobierzOperatoraImieAsync()
+        {
+            try
+            {
+                var imie = await SecureStorage.GetAsync(OPERATOR_IMIE_KEY);
+                System.Diagnostics.Debug.WriteLine($"👤 PobierzOperatoraImieAsync: {imie ?? "BRAK"}");
+                return imie;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"❌ Błąd pobierania imienia operatora: {ex.Message}");
+                return null;
+            }
+        }
+
+        public async Task<string> PobierzOperatoraNazwiskoAsync()
+        {
+            try
+            {
+                var nazwisko = await SecureStorage.GetAsync(OPERATOR_NAZWISKO_KEY);
+                System.Diagnostics.Debug.WriteLine($"👤 PobierzOperatoraNazwiskoAsync: {nazwisko ?? "BRAK"}");
+                return nazwisko;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"❌ Błąd pobierania nazwiska operatora: {ex.Message}");
+                return null;
+            }
+        }
+
         public async Task<bool> CzyZalogowanyAsync()
         {
             var token = await PobierzTokenAsync();
@@ -178,6 +227,8 @@ namespace RozpoznawanieMatwarzy.Services
                 System.Diagnostics.Debug.WriteLine("🚪 WylogujAsync...");
                 SecureStorage.Remove(TOKEN_KEY);
                 SecureStorage.Remove(USERNAME_KEY);
+                SecureStorage.Remove(OPERATOR_IMIE_KEY);        // ✅ Usuń dane operatora
+                SecureStorage.Remove(OPERATOR_NAZWISKO_KEY);    // ✅ Usuń dane operatora
                 System.Diagnostics.Debug.WriteLine("✅ Wylogowano");
             }
             catch (Exception ex)

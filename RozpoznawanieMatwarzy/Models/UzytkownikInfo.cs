@@ -15,6 +15,15 @@ namespace RozpoznawanieMatwarzy.Models
         [JsonPropertyName("Username")]
         public string Username { get; set; }
 
+        [JsonPropertyName("FirstName")]
+        public string FirstName { get; set; }
+
+        [JsonPropertyName("LastName")]
+        public string LastName { get; set; }
+
+        [JsonPropertyName("FullName")]
+        public string FullName { get; set; }
+
         [JsonPropertyName("Rola")]
         public string Rola { get; set; }
     }

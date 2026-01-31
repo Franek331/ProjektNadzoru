@@ -29,25 +29,25 @@
     <AppXManifest Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2026-01-30T16:25:23.957</Modified>
+      <Modified>2026-01-31T21:48:54.587</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2026-01-30T16:25:23.793</Modified>
+      <Modified>2026-01-31T21:48:54.411</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.runtimeconfig.json">
       <PackagePath>RozpoznawanieMatwarzy.runtimeconfig.json</PackagePath>
-      <Modified>2026-01-29T16:53:33.379</Modified>
+      <Modified>2026-01-31T21:03:43.592</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.dll">
       <PackagePath>RozpoznawanieMatwarzy.dll</PackagePath>
-      <Modified>2026-01-30T16:25:22.550</Modified>
+      <Modified>2026-01-31T21:48:53.052</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>RozpoznawanieMatwarzy.exe</PackagePath>
-      <Modified>2026-01-30T16:25:22.593</Modified>
+      <Modified>2026-01-31T21:48:53.117</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -287,7 +287,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\TwarzeNadzorowanie-2V\ProjektNadzoru\RozpoznawanieMatwarzy\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\RozpoznawanieMatwarzy.deps.json">
       <PackagePath>RozpoznawanieMatwarzy.deps.json</PackagePath>
-      <Modified>2026-01-30T16:25:23.599</Modified>
+      <Modified>2026-01-31T21:48:54.227</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
@@ -336,6 +336,22 @@
     <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.graphics.win2d\1.2.0\lib\net6.0-windows10.0.19041.0\Microsoft.Graphics.Canvas.Interop.dll">
       <PackagePath>Microsoft.Graphics.Canvas.Interop.dll</PackagePath>
       <Modified>2024-03-11T15:36:42.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.identitymodel.abstractions\8.15.0\lib\net8.0\Microsoft.IdentityModel.Abstractions.dll">
+      <PackagePath>Microsoft.IdentityModel.Abstractions.dll</PackagePath>
+      <Modified>2025-11-18T19:48:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.identitymodel.jsonwebtokens\8.15.0\lib\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll">
+      <PackagePath>Microsoft.IdentityModel.JsonWebTokens.dll</PackagePath>
+      <Modified>2025-11-18T19:48:22.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.identitymodel.logging\8.15.0\lib\net8.0\Microsoft.IdentityModel.Logging.dll">
+      <PackagePath>Microsoft.IdentityModel.Logging.dll</PackagePath>
+      <Modified>2025-11-18T19:48:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.identitymodel.tokens\8.15.0\lib\net8.0\Microsoft.IdentityModel.Tokens.dll">
+      <PackagePath>Microsoft.IdentityModel.Tokens.dll</PackagePath>
+      <Modified>2025-11-18T19:48:22.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.io.recyclablememorystream\3.0.1\lib\net6.0\Microsoft.IO.RecyclableMemoryStream.dll">
       <PackagePath>Microsoft.IO.RecyclableMemoryStream.dll</PackagePath>
@@ -432,6 +448,10 @@
     <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\ndeflibrary\4.1.0\lib\netstandard1.4\NdefLibrary.dll">
       <PackagePath>NdefLibrary.dll</PackagePath>
       <Modified>2017-08-16T14:19:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\system.identitymodel.tokens.jwt\8.15.0\lib\net8.0\System.IdentityModel.Tokens.Jwt.dll">
+      <PackagePath>System.IdentityModel.Tokens.Jwt.dll</PackagePath>
+      <Modified>2025-11-18T19:49:02.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Franio\.nuget\packages\microsoft.maui.controls.core\8.0.100\lib\net8.0-windows10.0.19041\ar\Microsoft.Maui.Controls.resources.dll">
       <PackagePath>ar\Microsoft.Maui.Controls.resources.dll</PackagePath>
