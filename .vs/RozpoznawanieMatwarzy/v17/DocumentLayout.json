@@ -259,7 +259,7 @@
               "RelativeDocumentMoniker": "RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
               "ToolTip": "C:\\TwarzeNadzorowanie-2V\\ProjektNadzoru\\RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
               "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelRozpoznawania.cs",
-              "ViewState": "AgIAAPkBAAAAAAAAAADwvx0CAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAPoBAAAAAAAAAADwvx0CAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-20T12:11:10.653Z",
               "EditorCaption": ""
@@ -274,8 +274,7 @@
               "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelLogowania.cs",
               "ViewState": "AgIAAFYAAAAAAAAAAAA8wG0AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-29T16:50:11.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-29T16:50:11.316Z"
             },
             {
               "$type": "Document",
@@ -347,8 +346,7 @@
               "RelativeToolTip": "RozpoznawanieMatwarzy\\ViewModels\\ModelRejestracji.cs",
               "ViewState": "AgIAAC0BAAAAAAAAAAAswFEBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T12:10:20.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-20T12:10:20.081Z"
             },
             {
               "$type": "Document",
