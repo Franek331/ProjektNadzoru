@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarSearch</name>
+    </assembly>
+    <members>
+        <member name="T:CarSearch.Converters.InvertBoolConverter">
+            <summary>
+            Odwraca bool — true → false, false → true
+            </summary>
+        </member>
+        <member name="T:CarSearch.Converters.NotNullConverter">
+            <summary>
+            Zwraca true jeśli obiekt NIE jest null
+            </summary>
+        </member>
+        <member name="T:CarSearch.Converters.NotNullOrEmptyConverter">
+            <summary>
+            Zwraca true jeśli string NIE jest null ani pusty
+            </summary>
+        </member>
+    </members>
+</doc>

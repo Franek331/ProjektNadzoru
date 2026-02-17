@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RozpoznawanieMatwarzy")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+a63d221af56223c474e79ad9a749fd87a9d2162f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+71af939c58eccc6753ccb9dc39bf1fc153818b98")]
 [assembly: System.Reflection.AssemblyProductAttribute("RozpoznawanieMatwarzy")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RozpoznawanieMatwarzy")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

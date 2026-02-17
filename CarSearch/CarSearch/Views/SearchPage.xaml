@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CarSearch.ViewModels"
+             x:Class="CarSearch.Views.SearchPage"
+             BackgroundColor="#080c10"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <vm:SearchViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+
+            <!-- HEADER -->
+            <Grid BackgroundColor="#0a1a24"
+                  Padding="20,50,20,20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <HorizontalStackLayout Grid.Row="0" Spacing="12" VerticalOptions="Center">
+                    <Border BackgroundColor="Transparent"
+                            Stroke="#00d4ff"
+                            StrokeThickness="2"
+                            StrokeShape="RoundRectangle 50"
+                            WidthRequest="42" HeightRequest="42">
+                        <Label Text="🚔" FontSize="20"
+                               HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <VerticalStackLayout Spacing="1">
+                        <Label Text="REJESTR POJAZDÓW"
+                               FontFamily="Bold"
+                               FontSize="16"
+                               CharacterSpacing="3"
+                               TextColor="White"
+                               FontAttributes="Bold"/>
+                        <Label Text="CENTRALNY SYSTEM EWIDENCJI"
+                               FontSize="9"
+                               CharacterSpacing="4"
+                               TextColor="#00d4ff"/>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+
+                <!-- Separator line -->
+                <BoxView Grid.Row="1"
+                         HeightRequest="2"
+                         BackgroundColor="#00d4ff"
+                         Margin="0,16,0,0"
+                         Opacity="0.8"/>
+            </Grid>
+
+            <!-- SEARCH SECTION -->
+            <VerticalStackLayout Padding="20,28,20,0" Spacing="12">
+
+                <Label Text="SPRAWDŹ POJAZD"
+                       FontSize="11"
+                       CharacterSpacing="4"
+                       TextColor="#3a5a6a"/>
+
+                <!-- Plate input row -->
+                <Grid ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Plate input with PL badge -->
+                    <Border Grid.Column="0"
+                            BackgroundColor="#0f1923"
+                            Stroke="#1e3a4a"
+                            StrokeThickness="1"
+                            StrokeShape="RoundRectangle 2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="36"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- PL badge -->
+                            <Border Grid.Column="0"
+                                    BackgroundColor="#003399"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 2,0,0,2">
+                                <Label Text="PL"
+                                       TextColor="#FFCC00"
+                                       FontSize="11"
+                                       FontAttributes="Bold"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                            </Border>
+
+                            <Entry Grid.Column="1"
+                                   Text="{Binding PlateInput}"
+                                   Placeholder="NR REJESTRACJI"
+                                   PlaceholderColor="#3a5a6a"
+                                   TextColor="#00d4ff"
+                                   BackgroundColor="Transparent"
+                                   FontFamily="Mono"
+                                   FontSize="16"
+                                   FontAttributes="Bold"
+                                   CharacterSpacing="3"
+                                   Keyboard="Text"
+                                   ReturnCommand="{Binding SearchCommand}"
+                                   Margin="10,0"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Search button -->
+                    <Button Grid.Column="1"
+                            Text="SZUKAJ"
+                            Command="{Binding SearchCommand}"
+                            BackgroundColor="#00d4ff"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontSize="13"
+                            CharacterSpacing="1"
+                            CornerRadius="2"
+                            Padding="16,0"
+                            HeightRequest="52"/>
+                </Grid>
+
+                <!-- Clear button (visible when has result or error) -->
+                <Button Text="✕  WYCZYŚĆ"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:SearchViewModel}}, Path=.}"
+                        Clicked="OnClearClicked"
+                        BackgroundColor="Transparent"
+                        BorderColor="#1e3a4a"
+                        BorderWidth="1"
+                        TextColor="#7a9aac"
+                        FontSize="12"
+                        CharacterSpacing="1"
+                        CornerRadius="2"
+                        HeightRequest="38"
+                        IsVisible="{Binding HasResult}"/>
+
+            </VerticalStackLayout>
+
+            <!-- LOADING -->
+            <VerticalStackLayout IsVisible="{Binding IsLoading}"
+                                 Padding="20,40,20,20"
+                                 HorizontalOptions="Center"
+                                 Spacing="16">
+                <ActivityIndicator IsRunning="{Binding IsLoading}"
+                                   Color="#00d4ff"
+                                   WidthRequest="36"
+                                   HeightRequest="36"
+                                   HorizontalOptions="Center"/>
+                <Label Text="PRZESZUKUJĘ BAZĘ DANYCH..."
+                       TextColor="#3a5a6a"
+                       FontSize="11"
+                       CharacterSpacing="3"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- IDLE STATE -->
+            <VerticalStackLayout IsVisible="{Binding IsIdle}"
+                                 Padding="20,50,20,20"
+                                 HorizontalOptions="Center"
+                                 Spacing="16">
+                <Label Text="🚗"
+                       FontSize="56"
+                       HorizontalOptions="Center"/>
+                <Label Text="Wpisz numer rejestracyjny&#10;i naciśnij SZUKAJ"
+                       TextColor="#3a5a6a"
+                       FontSize="14"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- ERROR -->
+            <Border IsVisible="{Binding HasError}"
+                    Margin="20,24,20,0"
+                    BackgroundColor="#1a0a0f"
+                    Stroke="#ff3344"
+                    StrokeThickness="1"
+                    StrokeShape="RoundRectangle 2">
+                <Border.Shadow>
+                    <Shadow Brush="#ff3344" Offset="0,0" Radius="20" Opacity="0.15"/>
+                </Border.Shadow>
+                <VerticalStackLayout Padding="20" Spacing="8">
+                    <Label Text="✕  BRAK WYNIKÓW"
+                           TextColor="#ff3344"
+                           FontSize="13"
+                           FontAttributes="Bold"
+                           CharacterSpacing="2"/>
+                    <Label Text="{Binding ErrorMessage}"
+                           TextColor="#7a9aac"
+                           FontSize="13"/>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- ===== RESULT ===== -->
+            <VerticalStackLayout IsVisible="{Binding HasResult}"
+                                 Padding="20,20,20,40"
+                                 Spacing="14">
+
+                <!-- 🚨 STOLEN BANNER -->
+                <Border IsVisible="{Binding Vehicle.IsSkradziony}"
+                        BackgroundColor="#1a0d00"
+                        Stroke="#ff9900"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 4">
+                    <Border.Shadow>
+                        <Shadow Brush="#ff9900" Offset="0,0" Radius="30" Opacity="0.5"/>
+                    </Border.Shadow>
+                    <VerticalStackLayout Padding="20,18" Spacing="6">
+                        <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                            <Label Text="⚠️"
+                                   FontSize="36"
+                                   VerticalOptions="Center"/>
+                            <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                                <Label Text="POJAZD SKRADZIONY"
+                                       TextColor="#ff9900"
+                                       FontSize="22"
+                                       FontAttributes="Bold"
+                                       CharacterSpacing="2"/>
+                                <Label Text=""
+                                       TextColor="#ffcc66"
+                                       FontSize="11"
+                                       CharacterSpacing="2"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+
+                        <BoxView HeightRequest="1" BackgroundColor="#ff9900" Opacity="0.4" Margin="0,8,0,4"/>
+
+                        <Label Text=""
+                               TextColor="#ff9900"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- PLATE + MAKE HEADER -->
+                <Border BackgroundColor="#0f1923"
+                        Stroke="#1a2d3d"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 2">
+                    <Grid Padding="16,14" ColumnSpacing="16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Polish plate -->
+                        <Border Grid.Column="0"
+                                BackgroundColor="White"
+                                Stroke="#cccccc"
+                                StrokeThickness="2"
+                                StrokeShape="RoundRectangle 4"
+                                Padding="0"
+                                VerticalOptions="Center">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="22"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0"
+                                        BackgroundColor="#003399"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 3,0,0,3">
+                                    <Label Text="PL"
+                                           TextColor="#FFCC00"
+                                           FontSize="7"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="Center"
+                                           VerticalOptions="Center"
+                                           Rotation="90"
+                                           Margin="0,2"/>
+                                </Border>
+                                <Label Grid.Column="1"
+                                       Text="{Binding Vehicle.NrRejestracji}"
+                                       TextColor="Black"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       CharacterSpacing="3"
+                                       Margin="10,8"/>
+                            </Grid>
+                        </Border>
+
+                        <!-- Make/Model -->
+                        <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                            <Label Text="{Binding Vehicle.FullName}"
+                                   TextColor="White"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="{Binding Vehicle.RokProdukcji}"
+                                       TextColor="#7a9aac"
+                                       FontSize="12"/>
+                                <Label Text="·" TextColor="#3a5a6a" FontSize="12"/>
+                                <Label Text="{Binding Vehicle.TypNadwozia}"
+                                       TextColor="#7a9aac"
+                                       FontSize="12"/>
+                            </HorizontalStackLayout>
+                            <!-- Stan badge -->
+                            <Border Padding="8,3"
+                                    StrokeShape="RoundRectangle 2"
+                                    HorizontalOptions="Start"
+                                    Margin="0,4,0,0">
+                                <Border.Triggers>
+                                    <DataTrigger TargetType="Border" Binding="{Binding Vehicle.Stan}" Value="aktywny">
+                                        <Setter Property="BackgroundColor" Value="#0d2a1a"/>
+                                        <Setter Property="Stroke" Value="#00ff88"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Border" Binding="{Binding Vehicle.Stan}" Value="skradziony">
+                                        <Setter Property="BackgroundColor" Value="#2a1200"/>
+                                        <Setter Property="Stroke" Value="#ff9900"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Border" Binding="{Binding Vehicle.Stan}" Value="złomowany">
+                                        <Setter Property="BackgroundColor" Value="#1a1000"/>
+                                        <Setter Property="Stroke" Value="#ff9900"/>
+                                    </DataTrigger>
+                                </Border.Triggers>
+                                <Label Text="{Binding Vehicle.Stan}"
+                                       FontSize="10"
+                                       FontAttributes="Bold"
+                                       CharacterSpacing="2">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Vehicle.Stan}" Value="aktywny">
+                                            <Setter Property="TextColor" Value="#00ff88"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Vehicle.Stan}" Value="skradziony">
+                                            <Setter Property="TextColor" Value="#ff9900"/>
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Vehicle.Stan}" Value="złomowany">
+                                            <Setter Property="TextColor" Value="#ff9900"/>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+
+                <!-- TECH DATA PANEL -->
+                <Border BackgroundColor="#0f1923"
+                        Stroke="#1a2d3d"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 2">
+                    <VerticalStackLayout Padding="16,14" Spacing="0">
+                        <Label Text="DANE TECHNICZNE"
+                               FontSize="10"
+                               CharacterSpacing="3"
+                               TextColor="#3a5a6a"
+                               Margin="0,0,0,10"/>
+
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d" Margin="0,0,0,8"/>
+
+                        <!-- VIN -->
+                        <Grid Padding="0,6" ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="VIN" TextColor="#7a9aac" FontSize="12"/>
+                            <Label Grid.Column="1" Text="{Binding Vehicle.Vin}"
+                                   TextColor="#00d4ff" FontSize="11"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d" Opacity="0.5"/>
+
+                        <!-- Kolor -->
+                        <Grid Padding="0,6" ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Kolor" TextColor="#7a9aac" FontSize="12"/>
+                            <Label Grid.Column="1" Text="{Binding Vehicle.Kolor}"
+                                   TextColor="White" FontSize="12" FontAttributes="Bold"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d" Opacity="0.5"/>
+
+                        <!-- Paliwo -->
+                        <Grid Padding="0,6" ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Paliwo" TextColor="#7a9aac" FontSize="12"/>
+                            <Label Grid.Column="1" Text="{Binding Vehicle.Paliwo}"
+                                   TextColor="White" FontSize="12" FontAttributes="Bold"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d" Opacity="0.5"/>
+
+                        <!-- Pojemność -->
+                        <Grid Padding="0,6" ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Pojemność" TextColor="#7a9aac" FontSize="12"/>
+                            <Label Grid.Column="1" Text="{Binding Vehicle.PojemnoscDisplay}"
+                                   TextColor="White" FontSize="12" FontAttributes="Bold"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d" Opacity="0.5"/>
+
+                        <!-- Moc -->
+                        <Grid Padding="0,6" ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Moc" TextColor="#7a9aac" FontSize="12"/>
+                            <Label Grid.Column="1" Text="{Binding Vehicle.MocDisplay}"
+                                   TextColor="White" FontSize="12" FontAttributes="Bold"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d" Opacity="0.5"/>
+
+                        <!-- Przebieg -->
+                        <Grid Padding="0,6" ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Przebieg" TextColor="#7a9aac" FontSize="12"/>
+                            <Label Grid.Column="1" Text="{Binding Vehicle.PrzebiegDisplay}"
+                                   TextColor="#00d4ff" FontSize="12" FontAttributes="Bold"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- REGISTRATION DATA PANEL -->
+                <Border BackgroundColor="#0f1923"
+                        Stroke="#1a2d3d"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 2">
+                    <VerticalStackLayout Padding="16,14" Spacing="0">
+                        <Label Text="REJESTRACJA"
+                               FontSize="10"
+                               CharacterSpacing="3"
+                               TextColor="#3a5a6a"
+                               Margin="0,0,0,10"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d" Margin="0,0,0,8"/>
+
+                        <Grid Padding="0,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Nr rejestracji" TextColor="#7a9aac" FontSize="12"/>
+                            <Label Grid.Column="1" Text="{Binding Vehicle.NrRejestracji}"
+                                   TextColor="#00d4ff" FontSize="12" FontAttributes="Bold"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d" Opacity="0.5"/>
+
+                        <Grid Padding="0,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="PESEL właściciela" TextColor="#7a9aac" FontSize="12"/>
+                            <Label Grid.Column="1" Text="{Binding Vehicle.WlascicielPesel}"
+                                   TextColor="White" FontSize="12" FontAttributes="Bold"
+                                   HorizontalOptions="End"/>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- OWNER 1 PANEL -->
+                <Border BackgroundColor="#0f1923"
+                        Stroke="#1a2d3d"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 2">
+                    <VerticalStackLayout Padding="16,14" Spacing="10">
+                        <Label Text="WŁAŚCICIEL GŁÓWNY"
+                               FontSize="10"
+                               CharacterSpacing="3"
+                               TextColor="#3a5a6a"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d"/>
+
+                        <Grid ColumnSpacing="14">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Avatar -->
+                            <Border Grid.Column="0"
+                                    Stroke="#1e3a4a"
+                                    StrokeThickness="2"
+                                    StrokeShape="RoundRectangle 4"
+                                    WidthRequest="60" HeightRequest="60"
+                                    BackgroundColor="#111820">
+                                <Image Source="{Binding Owner1PhotoUrl}"
+                                       Aspect="AspectFill"
+                                       WidthRequest="60"
+                                       HeightRequest="60"
+                                       IsVisible="{Binding Vehicle.Wlasciciel.HasData}"/>
+                                <Label Text="👤"
+                                       FontSize="28"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       IsVisible="{Binding Vehicle.Wlasciciel.HasData, Converter={StaticResource InvertBoolConverter}}"/>
+                            </Border>
+
+                            <!-- Info -->
+                            <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                                <Label Text="{Binding Vehicle.Wlasciciel.FullName}"
+                                       TextColor="White"
+                                       FontSize="17"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Vehicle.Wlasciciel.Pesel}"
+                                       TextColor="#00d4ff"
+                                       FontSize="12"/>
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="{Binding Vehicle.Wlasciciel.DataUrodzenia}"
+                                           TextColor="#7a9aac"
+                                           FontSize="12"
+                                           IsVisible="{Binding Vehicle.Wlasciciel.HasData}"/>
+                                    <Label Text="{Binding Vehicle.Wlasciciel.Plec}"
+                                           TextColor="#7a9aac"
+                                           FontSize="12"
+                                           IsVisible="{Binding Vehicle.Wlasciciel.HasData}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- OWNER 2 PANEL (conditional) -->
+                <Border BackgroundColor="#0f1923"
+                        Stroke="#1a2d3d"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 2"
+                        IsVisible="{Binding Vehicle.DrugiWlasciciel, Converter={StaticResource NotNullConverter}}">
+                    <VerticalStackLayout Padding="16,14" Spacing="10">
+                        <Label Text="WSPÓŁWŁAŚCICIEL"
+                               FontSize="10"
+                               CharacterSpacing="3"
+                               TextColor="#3a5a6a"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d"/>
+
+                        <Grid ColumnSpacing="14">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0"
+                                    Stroke="#1e3a4a"
+                                    StrokeThickness="2"
+                                    StrokeShape="RoundRectangle 4"
+                                    WidthRequest="60" HeightRequest="60"
+                                    BackgroundColor="#111820">
+                                <Image Source="{Binding Owner2PhotoUrl}"
+                                       Aspect="AspectFill"
+                                       WidthRequest="60"
+                                       HeightRequest="60"
+                                       IsVisible="{Binding Vehicle.DrugiWlasciciel.HasData}"/>
+                                <Label Text="👤"
+                                       FontSize="28"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       IsVisible="{Binding Vehicle.DrugiWlasciciel.HasData, Converter={StaticResource InvertBoolConverter}}"/>
+                            </Border>
+
+                            <VerticalStackLayout Grid.Column="1" Spacing="3" VerticalOptions="Center">
+                                <Label Text="{Binding Vehicle.DrugiWlasciciel.FullName}"
+                                       TextColor="White"
+                                       FontSize="17"
+                                       FontAttributes="Bold"/>
+                                <Label Text="{Binding Vehicle.DrugiWlasciciel.Pesel}"
+                                       TextColor="#00d4ff"
+                                       FontSize="12"/>
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="{Binding Vehicle.DrugiWlasciciel.DataUrodzenia}"
+                                           TextColor="#7a9aac"
+                                           FontSize="12"
+                                           IsVisible="{Binding Vehicle.DrugiWlasciciel.HasData}"/>
+                                    <Label Text="{Binding Vehicle.DrugiWlasciciel.Plec}"
+                                           TextColor="#7a9aac"
+                                           FontSize="12"
+                                           IsVisible="{Binding Vehicle.DrugiWlasciciel.HasData}"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Uwagi -->
+                <Border BackgroundColor="#0f1923"
+                        Stroke="#1a2d3d"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 2"
+                        IsVisible="{Binding Vehicle.Uwagi, Converter={StaticResource NotNullOrEmptyConverter}}">
+                    <VerticalStackLayout Padding="16,14" Spacing="8">
+                        <Label Text="UWAGI"
+                               FontSize="10"
+                               CharacterSpacing="3"
+                               TextColor="#3a5a6a"/>
+                        <BoxView HeightRequest="1" BackgroundColor="#1a2d3d"/>
+                        <Label Text="{Binding Vehicle.Uwagi}"
+                               TextColor="#c8dce8"
+                               FontSize="13"/>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+            <!-- end result -->
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

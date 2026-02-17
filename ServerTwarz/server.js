@@ -213,6 +213,7 @@ await runAsync(`
         FOREIGN KEY (pesel) REFERENCES faces(pesel) ON DELETE CASCADE
   )
 `);
+
 await runAsync(`
     CREATE TABLE IF NOT EXISTS face_features (
     id INTEGER PRIMARY KEY,
@@ -238,11 +239,15 @@ await runAsync(`
 await runAsync(
  'INSERT OR IGNORE INTO users (username, first_name, last_name, password_hash, role) VALUES (?, ?, ?, ?, ?)',
   ['Admin', 'Franek', 'Karpiuk', adminPasswordHash, 'admin']
+  
 );
+
+
   } catch (err) {
     console.error('❌ Błąd inicjalizacji bazy:', err);
   }
 }
+
 async function logActivity(actionType, targetPesel = null, targetName = null, details = null, userType = 'admin') {
   try {
     await runAsync(
@@ -1825,6 +1830,7 @@ app.get('/api/fines', async (req, res) => {
         OperatorNazwisko: operatorNazwisko, // ← NOWE
         DataRaportu: f.data_raportu,
         Status: f.status
+        
       };
     });
 

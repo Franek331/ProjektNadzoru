@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POJAZDY — Centralny Rejestr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #080c10;
+      --bg2: #0d1117;
+      --bg3: #111820;
+      --panel: #0f1923;
+      --border: #1e3a4a;
+      --border2: #1a2d3d;
+      --accent: #00d4ff;
+      --accent2: #0099cc;
+      --accent3: #00ff88;
+      --warn: #ff9900;
+      --danger: #ff3344;
+      --text: #c8dce8;
+      --text2: #7a9aac;
+      --text3: #3a5a6a;
+      --green: #00ff88;
+      --red: #ff3344;
+      --orange: #ff9900;
+      --font-mono: 'Share Tech Mono', monospace;
+      --font-ui: 'Rajdhani', sans-serif;
+      --font-head: 'Exo 2', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ui);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* SCANLINES */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.08) 2px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #060e14 0%, #0a1a24 50%, #060e14 100%);
+      border-bottom: 2px solid var(--accent);
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .header-logo .emblem {
+      width: 40px;
+      height: 40px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 20px rgba(0,212,255,0.4);
+      animation: emblemPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes emblemPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(0,212,255,0.4); }
+      50% { box-shadow: 0 0 40px rgba(0,212,255,0.7), 0 0 60px rgba(0,212,255,0.2); }
+    }
+
+    .header-logo h1 {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 4px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .header-logo span {
+      display: block;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 6px;
+      font-family: var(--font-mono);
+      font-weight: 300;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .live-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--green);
+    }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    .header-time {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text2);
+      letter-spacing: 2px;
+    }
+
+    /* LAYOUT */
+    .app {
+      display: flex;
+      height: calc(100vh - 64px);
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 220px;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    .nav-section {
+      padding: 20px 0;
+    }
+
+    .nav-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--text3);
+      padding: 0 20px 10px;
+      text-transform: uppercase;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 3px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text2);
+    }
+
+    .nav-item:hover {
+      background: rgba(0,212,255,0.05);
+      color: var(--accent);
+      border-left-color: rgba(0,212,255,0.3);
+    }
+
+    .nav-item.active {
+      background: rgba(0,212,255,0.08);
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+
+    .nav-icon { font-size: 16px; width: 20px; text-align: center; }
+
+    .sidebar-stats {
+      margin-top: auto;
+      padding: 16px;
+      border-top: 1px solid var(--border2);
+    }
+
+    .stat-mini {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+      font-size: 12px;
+      color: var(--text2);
+    }
+
+    .stat-mini span:last-child {
+      font-family: var(--font-mono);
+      color: var(--accent);
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      background: var(--bg);
+    }
+
+    .main::-webkit-scrollbar { width: 4px; }
+    .main::-webkit-scrollbar-track { background: var(--bg2); }
+    .main::-webkit-scrollbar-thumb { background: var(--border); }
+
+    /* VIEWS */
+    .view { display: none; padding: 24px 28px; }
+    .view.active { display: block; }
+
+    /* PAGE HEADER */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .page-subtitle {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text3);
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    /* SEARCH BAR */
+    .search-bar {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-input {
+      flex: 1;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      outline: none;
+      letter-spacing: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus { border-color: var(--accent); }
+    .search-input::placeholder { color: var(--text3); }
+
+    select.search-input {
+      cursor: pointer;
+      max-width: 160px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+    }
+    .btn-primary:hover { background: #00f0ff; box-shadow: 0 0 20px rgba(0,212,255,0.4); }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text2);
+    }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-danger:hover { background: #ff1122; box-shadow: 0 0 20px rgba(255,51,68,0.4); }
+
+    .btn-warn { background: var(--warn); color: #000; }
+
+    .btn-sm { padding: 5px 12px; font-size: 11px; }
+    .btn-icon { padding: 7px 10px; }
+
+    /* STATS CARDS */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      padding: 16px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .stat-card.green::before { background: var(--green); }
+    .stat-card.warn::before { background: var(--warn); }
+    .stat-card.danger::before { background: var(--danger); }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text3);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .stat-value {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-top: 4px;
+    }
+
+    .stat-value.green { color: var(--green); }
+    .stat-value.warn { color: var(--warn); }
+    .stat-value.danger { color: var(--danger); }
+
+    /* TABLE */
+    .table-wrap {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      overflow: hidden;
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border2);
+      background: rgba(0,0,0,0.2);
+    }
+
+    .table-title {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--text2);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead th {
+      padding: 10px 16px;
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--text3);
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border2);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid rgba(30,58,74,0.5);
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+
+    tbody tr:hover { background: rgba(0,212,255,0.04); }
+
+    tbody td {
+      padding: 10px 16px;
+      font-size: 13px;
+      vertical-align: middle;
+    }
+
+    .td-mono {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .badge-green { background: rgba(0,255,136,0.15); color: var(--green); border: 1px solid rgba(0,255,136,0.3); }
+    .badge-red { background: rgba(255,51,68,0.15); color: var(--red); border: 1px solid rgba(255,51,68,0.3); }
+    .badge-warn { background: rgba(255,153,0,0.15); color: var(--warn); border: 1px solid rgba(255,153,0,0.3); }
+    .badge-blue { background: rgba(0,212,255,0.15); color: var(--accent); border: 1px solid rgba(0,212,255,0.3); }
+    .badge-gray { background: rgba(122,154,172,0.15); color: var(--text2); border: 1px solid rgba(122,154,172,0.3); }
+
+    .actions { display: flex; gap: 6px; }
+
+    /* VIN display */
+    .vin-text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text2);
+      letter-spacing: 1px;
+    }
+
+    /* OWNER PILL */
+    .owner-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .owner-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--border);
+      border: 1px solid var(--border2);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .owner-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .owner-pesel {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text3);
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-overlay.show { display: flex; }
+
+    .modal {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      width: 90%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 0 80px rgba(0,212,255,0.15);
+      animation: modalIn 0.25s ease;
+    }
+
+    .modal-wide { max-width: 900px; }
+
+    @keyframes modalIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.2);
+    }
+
+    .modal-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .modal-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text2);
+      cursor: pointer;
+      font-size: 16px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover { border-color: var(--danger); color: var(--danger); }
+
+    .modal-body { padding: 24px; }
+
+    /* FORM */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-grid.cols3 { grid-template-columns: 1fr 1fr 1fr; }
+    .form-full { grid-column: 1 / -1; }
+
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: var(--text3);
+      text-transform: uppercase;
+    }
+
+    .form-label.required::after {
+      content: ' *';
+      color: var(--accent);
+    }
+
+    .form-input {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 9px 12px;
+      font-family: var(--font-ui);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus { border-color: var(--accent); }
+    .form-input::placeholder { color: var(--text3); }
+
+    .form-input[type="number"] { font-family: var(--font-mono); }
+
+    select.form-input {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23507080'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 30px;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border2);
+    }
+
+    /* DETAIL VIEW */
+    .detail-header {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      padding: 24px;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .detail-plate {
+      background: #fff;
+      color: #000;
+      font-family: var(--font-mono);
+      font-size: 22px;
+      font-weight: 700;
+      padding: 10px 20px;
+      letter-spacing: 3px;
+      border-radius: 4px;
+      border: 3px solid #ddd;
+      position: relative;
+    }
+
+    .detail-plate::before {
+      content: 'PL';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 28px;
+      background: #003399;
+      color: #fc0;
+      font-size: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px 0 0 2px;
+      writing-mode: vertical-rl;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .detail-make {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .detail-sub {
+      color: var(--text2);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .detail-panel {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      padding: 20px;
+    }
+
+    .detail-panel-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--text3);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(30,58,74,0.3);
+    }
+
+    .detail-row:last-child { border-bottom: none; }
+
+    .detail-key { color: var(--text2); }
+    .detail-val {
+      font-weight: 600;
+      text-align: right;
+      max-width: 60%;
+      word-break: break-word;
+    }
+
+    .detail-val.mono { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+
+    /* OWNER CARD */
+    .owner-card {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .owner-card-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 2px;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .owner-card-info {}
+    .owner-card-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .owner-card-details {
+      font-size: 12px;
+      color: var(--text2);
+      margin-top: 4px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .owner-card-pesel {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-top: 2px;
+    }
+
+    /* EVENTS TABLE */
+    .events-panel {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .event-item {
+      display: flex;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(30,58,74,0.4);
+      align-items: flex-start;
+    }
+
+    .event-item:last-child { border-bottom: none; }
+
+    .event-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text3);
+      white-space: nowrap;
+      min-width: 90px;
+    }
+
+    .event-type {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .event-desc { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+    .event-cost {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--green);
+      white-space: nowrap;
+    }
+
+    /* TOAST */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9998;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: 12px 18px;
+      min-width: 280px;
+      font-size: 13px;
+      animation: slideIn 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast.success { border-left-color: var(--green); }
+    .toast.error { border-left-color: var(--red); }
+    .toast.warn { border-left-color: var(--warn); }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text3);
+    }
+
+    .empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+    .empty-state p { font-size: 14px; }
+
+    /* LOADING */
+    .loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      gap: 12px;
+      color: var(--text3);
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* DASHBOARD CHARTS */
+    .charts-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .chart-panel {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      padding: 20px;
+    }
+
+    .chart-title {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--text3);
+      margin-bottom: 16px;
+    }
+
+    .bar-chart { display: flex; flex-direction: column; gap: 8px; }
+
+    .bar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bar-label { font-size: 12px; color: var(--text2); min-width: 100px; }
+    .bar-track { flex: 1; height: 6px; background: var(--bg3); }
+    .bar-fill { height: 100%; background: var(--accent); transition: width 1s ease; }
+    .bar-fill.green { background: var(--green); }
+    .bar-val { font-family: var(--font-mono); font-size: 11px; color: var(--text3); min-width: 30px; text-align: right; }
+
+    /* FUEL DONUT */
+    .fuel-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .fuel-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: var(--bg3);
+      border-left: 3px solid var(--accent);
+    }
+
+    .fuel-item:nth-child(2) { border-left-color: var(--green); }
+    .fuel-item:nth-child(3) { border-left-color: var(--warn); }
+    .fuel-item:nth-child(4) { border-left-color: var(--text3); }
+
+    .fuel-name { font-size: 13px; font-weight: 600; }
+    .fuel-count { font-family: var(--font-mono); font-size: 14px; color: #fff; }
+
+    /* TABS */
+    .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border2); margin-bottom: 20px; }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--text2);
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      text-transform: uppercase;
+    }
+
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* COLOR SWATCH */
+    .color-swatch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      flex-shrink: 0;
+    }
+
+    /* RESPONSIVE TABLE SCROLL */
+    .table-scroll { overflow-x: auto; }
+
+    /* BACK BTN */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text2);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+
+    .back-btn:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-logo">
+    <div class="emblem">🚔</div>
+    <div>
+      <h1>REJESTR POJAZDÓW</h1>
+      <span>CENTRALNY SYSTEM EWIDENCJI</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="live-indicator">
+      <div class="live-dot"></div>
+      ONLINE
+    </div>
+    <div class="header-time" id="clockDisplay"></div>
+  </div>
+</header>
+
+<!-- APP -->
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="nav-section">
+      <div class="nav-label">Nawigacja</div>
+      <div class="nav-item active" onclick="showView('dashboard')">
+        <span class="nav-icon">📊</span> Dashboard
+      </div>
+      <div class="nav-item" onclick="showView('vehicles')">
+        <span class="nav-icon">🚗</span> Pojazdy
+      </div>
+      <div class="nav-item" onclick="showView('search')">
+        <span class="nav-icon">🔍</span> Szukaj
+      </div>
+      <div class="nav-item" onclick="showView('logs')">
+        <span class="nav-icon">📋</span> Logi
+      </div>
+    </div>
+    <div class="sidebar-stats" id="sidebarStats">
+      <div class="stat-mini"><span>Razem</span><span id="ssSidebarTotal">—</span></div>
+      <div class="stat-mini"><span>Aktywne</span><span id="ssSidebarActive">—</span></div>
+      <div class="stat-mini"><span>Skradzione</span><span id="ssSidebarStolen">—</span></div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <div class="view active" id="view-dashboard">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Dashboard</div>
+          <div class="page-subtitle">PRZEGLĄD SYSTEMU EWIDENCJI POJAZDÓW</div>
+        </div>
+        <button class="btn btn-primary" onclick="openAddModal()">+ Dodaj pojazd</button>
+      </div>
+
+      <div class="stats-row" id="statsRow">
+        <div class="stat-card"><div class="stat-label">Wszystkie pojazdy</div><div class="stat-value" id="statTotal">—</div></div>
+        <div class="stat-card green"><div class="stat-label">Aktywne</div><div class="stat-value green" id="statActive">—</div></div>
+        <div class="stat-card danger"><div class="stat-label">Skradzione</div><div class="stat-value danger" id="statStolen">—</div></div>
+        <div class="stat-card warn"><div class="stat-label">Złomowane</div><div class="stat-value warn" id="statScrapped">—</div></div>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-panel">
+          <div class="chart-title">TOP MARKI</div>
+          <div class="bar-chart" id="brandChart"></div>
+        </div>
+        <div class="chart-panel">
+          <div class="chart-title">RODZAJ PALIWA</div>
+          <div class="fuel-list" id="fuelChart"></div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-header">
+          <span class="table-title">OSTATNIO DODANE POJAZDY</span>
+          <button class="btn btn-secondary btn-sm" onclick="showView('vehicles')">Pokaż wszystkie →</button>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Nr rej.</th>
+                <th>Marka / Model</th>
+                <th>Właściciel</th>
+                <th>Rok</th>
+                <th>Paliwo</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="dashboardTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- VEHICLES LIST -->
+    <div class="view" id="view-vehicles">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Pojazdy</div>
+          <div class="page-subtitle">EWIDENCJA ZAREJESTROWANYCH POJAZDÓW</div>
+        </div>
+        <button class="btn btn-primary" onclick="openAddModal()">+ Dodaj pojazd</button>
+      </div>
+
+      <div class="search-bar">
+        <input class="search-input" id="vehicleSearch" placeholder="Szukaj po nr rej., VIN, marce, PESELu..." oninput="searchVehicles()">
+        <select class="search-input" id="filterMarka" onchange="searchVehicles()">
+          <option value="">Wszystkie marki</option>
+        </select>
+        <select class="search-input" id="filterStan" onchange="searchVehicles()">
+          <option value="">Wszystkie statusy</option>
+          <option value="aktywny">Aktywny</option>
+          <option value="skradziony">Skradziony</option>
+          <option value="złomowany">Złomowany</option>
+          <option value="wyrejestrowany">Wyrejestrowany</option>
+        </select>
+        <select class="search-input" id="filterPaliwo" onchange="searchVehicles()">
+          <option value="">Wszystkie paliwa</option>
+          <option value="benzyna">Benzyna</option>
+          <option value="diesel">Diesel</option>
+          <option value="elektryczny">Elektryczny</option>
+          <option value="hybryd">Hybryd</option>
+          <option value="lpg">LPG</option>
+        </select>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-header">
+          <span class="table-title" id="vehiclesCount">Ładowanie...</span>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Nr rejestracji</th>
+                <th>VIN</th>
+                <th>Marka / Model / Gen.</th>
+                <th>Kolor</th>
+                <th>Rok</th>
+                <th>Właściciel</th>
+                <th>Paliwo</th>
+                <th>Przebieg</th>
+                <th>Status</th>
+                <th>Akcje</th>
+              </tr>
+            </thead>
+            <tbody id="vehiclesTableBody">
+              <tr><td colspan="10"><div class="loading"><div class="spinner"></div> Ładowanie danych...</div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEARCH VIEW -->
+    <div class="view" id="view-search">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Wyszukiwanie</div>
+          <div class="page-subtitle">SZYBKIE SPRAWDZANIE POJAZDÓW / WŁAŚCICIELI</div>
+        </div>
+      </div>
+
+      <div class="search-bar" style="max-width:600px">
+        <input class="search-input" id="quickSearch" placeholder="Nr rej., VIN, marka, model..." style="font-size:15px; padding:14px 18px;">
+        <button class="btn btn-primary" onclick="doQuickSearch()">Szukaj</button>
+      </div>
+
+      <div id="searchResults"></div>
+    </div>
+
+    <!-- VEHICLE DETAIL (dynamic) -->
+    <div class="view" id="view-detail">
+      <div class="back-btn" onclick="goBack()">← Powrót</div>
+      <div id="detailContent"></div>
+    </div>
+
+    <!-- LOGS -->
+    <div class="view" id="view-logs">
+      <div class="page-header">
+        <div>
+          <div class="page-title">Logi aktywności</div>
+          <div class="page-subtitle">HISTORIA DZIAŁAŃ W SYSTEMIE</div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th><th>Akcja</th><th>Nr rej.</th><th>Szczegóły</th><th>Data</th>
+              </tr>
+            </thead>
+            <tbody id="logsTableBody">
+              <tr><td colspan="5"><div class="loading"><div class="spinner"></div> Ładowanie...</div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL: ADD VEHICLE -->
+<div class="modal-overlay" id="addModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Rejestracja pojazdu</span>
+      <button class="modal-close" onclick="closeModal('addModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="addVehicleForm" onsubmit="submitAddVehicle(event)">
+        <div style="margin-bottom:14px">
+          <div class="form-label" style="font-size:11px;color:var(--accent);margin-bottom:10px;letter-spacing:3px">▌ DANE REJESTRACYJNE</div>
+          <div class="form-grid cols3">
+            <div class="form-group">
+              <label class="form-label required">Nr rejestracji</label>
+              <input class="form-input" name="nr_rejestracji" placeholder="WA12345" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label required">VIN</label>
+              <input class="form-input" name="vin" placeholder="17 znaków" maxlength="17" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label required">Miejsce rejestracji</label>
+              <input class="form-input" name="miejsce_rejestracji" placeholder="Miasto" required>
+            </div>
+            <div class="form-group form-full">
+              <label class="form-label required">Data pierwszej rejestracji</label>
+              <input class="form-input" name="data_pierwszej_rejestracji" type="date" required>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px">
+          <div class="form-label" style="font-size:11px;color:var(--accent);margin-bottom:10px;letter-spacing:3px">▌ DANE POJAZDU</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label required">Marka</label>
+              <input class="form-input" name="marka" placeholder="np. BMW" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label required">Model</label>
+              <input class="form-input" name="model" placeholder="np. 3 Series" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Generacja</label>
+              <input class="form-input" name="generacja" placeholder="np. F30">
+            </div>
+            <div class="form-group">
+              <label class="form-label required">Rok produkcji</label>
+              <input class="form-input" name="rok_produkcji" type="number" min="1900" max="2030" placeholder="2020" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label required">Kolor</label>
+              <input class="form-input" name="kolor" placeholder="np. Czarny" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Typ nadwozia</label>
+              <select class="form-input" name="typ_nadwozia">
+                <option value="">— Wybierz —</option>
+                <option>Sedan</option><option>Kombi</option><option>Hatchback</option>
+                <option>SUV</option><option>Coupe</option><option>Kabriolet</option>
+                <option>Van</option><option>Minivan</option><option>Pickup</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Paliwo</label>
+              <select class="form-input" name="paliwo">
+                <option value="benzyna">Benzyna</option>
+                <option value="diesel">Diesel</option>
+                <option value="elektryczny">Elektryczny</option>
+                <option value="hybryd">Hybryd</option>
+                <option value="lpg">LPG</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pojemność [ccm]</label>
+              <input class="form-input" name="pojemnosc_silnika" type="number" placeholder="1995">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Moc [kW]</label>
+              <input class="form-input" name="moc_kw" type="number" placeholder="110">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Przebieg [km]</label>
+              <input class="form-input" name="przebieg" type="number" placeholder="0">
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px">
+          <div class="form-label" style="font-size:11px;color:var(--accent);margin-bottom:10px;letter-spacing:3px">▌ WŁAŚCICIEL</div>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label required">PESEL właściciela</label>
+              <input class="form-input" name="wlasciciel_pesel" placeholder="11 cyfr" maxlength="11" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">PESEL 2. właściciela</label>
+              <input class="form-input" name="drugi_wlasciciel_pesel" placeholder="opcjonalnie">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Status</label>
+              <select class="form-input" name="stan">
+                <option value="aktywny">Aktywny</option>
+                <option value="skradziony">Skradziony</option>
+                <option value="złomowany">Złomowany</option>
+                <option value="wyrejestrowany">Wyrejestrowany</option>
+              </select>
+            </div>
+            <div class="form-group form-full">
+              <label class="form-label">Uwagi</label>
+              <input class="form-input" name="uwagi" placeholder="Dodatkowe informacje...">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('addModal')">Anuluj</button>
+          <button type="submit" class="btn btn-primary">✓ Zarejestruj pojazd</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ADD EVENT -->
+<div class="modal-overlay" id="eventModal">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title">Dodaj zdarzenie</span>
+      <button class="modal-close" onclick="closeModal('eventModal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <form id="eventForm" onsubmit="submitEvent(event)">
+        <input type="hidden" id="eventVehicleId">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label required">Typ zdarzenia</label>
+            <select class="form-input" name="typ_zdarzenia" required>
+              <option value="">— Wybierz —</option>
+              <option>Przegląd techniczny</option>
+              <option>Ubezpieczenie OC</option>
+              <option>Naprawa</option>
+              <option>Wymiana oleju</option>
+              <option>Wypadek</option>
+              <option>Mandat</option>
+              <option>Kontrola policyjna</option>
+              <option>Inne</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label required">Data</label>
+            <input class="form-input" name="data_zdarzenia" type="date" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Instytucja</label>
+            <input class="form-input" name="instytucja" placeholder="np. SKP Gdańsk">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Koszt [PLN]</label>
+            <input class="form-input" name="koszt" type="number" step="0.01" placeholder="0.00">
+          </div>
+          <div class="form-group form-full">
+            <label class="form-label">Opis</label>
+            <input class="form-input" name="opis" placeholder="Szczegóły zdarzenia...">
+          </div>
+        </div>
+        <div class="form-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('eventModal')">Anuluj</button>
+          <button type="submit" class="btn btn-primary">Dodaj zdarzenie</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST CONTAINER -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+const API = 'http://localhost:5010/api';
+const FACES_API = 'http://localhost:5000/api';
+let allVehicles = [];
+let previousView = 'vehicles';
+
+// ===================== CLOCK =====================
+function updateClock() {
+  const now = new Date();
+  document.getElementById('clockDisplay').textContent = now.toLocaleTimeString('pl-PL');
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// ===================== NAVIGATION =====================
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('view-' + name).classList.add('active');
+  document.querySelector(`.nav-item[onclick*="${name}"]`)?.classList.add('active');
+
+  if (name === 'dashboard') loadDashboard();
+  if (name === 'vehicles') loadVehicles();
+  if (name === 'logs') loadLogs();
+}
+
+function goBack() {
+  showView(previousView || 'vehicles');
+}
+
+function showDetail(id) {
+  previousView = document.querySelector('.nav-item.active')?.getAttribute('onclick')?.match(/'(\w+)'/)?.[1] || 'vehicles';
+  showView('detail');
+  loadDetail(id);
+}
+
+// ===================== TOAST =====================
+function toast(msg, type = 'info') {
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.innerHTML = `<span>${type === 'success' ? '✓' : type === 'error' ? '✕' : 'ℹ'}</span> ${msg}`;
+  document.getElementById('toastContainer').appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
+
+// ===================== API HELPERS =====================
+async function apiFetch(url, options = {}) {
+  const res = await fetch(url, options);
+  return res.json();
+}
+
+// ===================== STATS SIDEBAR =====================
+async function loadSidebarStats() {
+  try {
+    const data = await apiFetch(`${API}/stats`);
+    if (data.Sukces) {
+      document.getElementById('ssSidebarTotal').textContent = data.Statystyki.Razem;
+      document.getElementById('ssSidebarActive').textContent = data.Statystyki.Aktywne;
+      document.getElementById('ssSidebarStolen').textContent = data.Statystyki.Skradzione;
+    }
+  } catch (e) {}
+}
+
+// ===================== DASHBOARD =====================
+async function loadDashboard() {
+  try {
+    const [statsData, vehiclesData] = await Promise.all([
+      apiFetch(`${API}/stats`),
+      apiFetch(`${API}/vehicles`)
+    ]);
+
+    if (statsData.Sukces) {
+      const s = statsData.Statystyki;
+      document.getElementById('statTotal').textContent = s.Razem;
+      document.getElementById('statActive').textContent = s.Aktywne;
+      document.getElementById('statStolen').textContent = s.Skradzione;
+      document.getElementById('statScrapped').textContent = s.Zlomowane;
+
+      // Brand chart
+      const brandChart = document.getElementById('brandChart');
+      const maxBrand = Math.max(...s.WgMarki.map(b => b.c), 1);
+      brandChart.innerHTML = s.WgMarki.slice(0, 6).map(b => `
+        <div class="bar-item">
+          <span class="bar-label">${b.marka}</span>
+          <div class="bar-track"><div class="bar-fill" style="width:${(b.c/maxBrand)*100}%"></div></div>
+          <span class="bar-val">${b.c}</span>
+        </div>
+      `).join('') || '<div class="empty-state" style="padding:20px"><p>Brak danych</p></div>';
+
+      // Fuel chart
+      const fuelChart = document.getElementById('fuelChart');
+      fuelChart.innerHTML = s.WgPaliwa.map(f => `
+        <div class="fuel-item">
+          <span class="fuel-name">${capitalize(f.paliwo)}</span>
+          <span class="fuel-count">${f.c}</span>
+        </div>
+      `).join('') || '<div class="empty-state" style="padding:20px"><p>Brak danych</p></div>';
+    }
+
+    if (vehiclesData.Sukces) {
+      renderVehicleTable('dashboardTableBody', vehiclesData.Pojazdy.slice(0, 8));
+    }
+  } catch (e) {
+    toast('Błąd połączenia z serwerem', 'error');
+  }
+}
+
+// ===================== VEHICLES =====================
+async function loadVehicles() {
+  try {
+    const data = await apiFetch(`${API}/vehicles`);
+    if (data.Sukces) {
+      allVehicles = data.Pojazdy;
+      renderVehicleTable('vehiclesTableBody', allVehicles);
+      document.getElementById('vehiclesCount').textContent = `ZNALEZIONO: ${allVehicles.length} POJAZDÓW`;
+      populateMarkaFilter(allVehicles);
+    }
+  } catch (e) {
+    document.getElementById('vehiclesTableBody').innerHTML = `<tr><td colspan="10" style="text-align:center;padding:40px;color:var(--text3)">Błąd połączenia z serwerem (port 5010)</td></tr>`;
+  }
+}
+
+function populateMarkaFilter(vehicles) {
+  const sel = document.getElementById('filterMarka');
+  const marki = [...new Set(vehicles.map(v => v.marka))].sort();
+  sel.innerHTML = '<option value="">Wszystkie marki</option>' + marki.map(m => `<option value="${m}">${m}</option>`).join('');
+}
+
+function searchVehicles() {
+  const q = document.getElementById('vehicleSearch').value.toLowerCase();
+  const marka = document.getElementById('filterMarka').value;
+  const stan = document.getElementById('filterStan').value;
+  const paliwo = document.getElementById('filterPaliwo').value;
+
+  let filtered = allVehicles.filter(v => {
+    const matchQ = !q || [v.nr_rejestracji, v.vin, v.marka, v.model, v.wlasciciel_pesel,
+      v.Wlasciciel?.Imie, v.Wlasciciel?.Nazwisko].some(s => s?.toLowerCase().includes(q));
+    const matchMarka = !marka || v.marka === marka;
+    const matchStan = !stan || v.stan === stan;
+    const matchPaliwo = !paliwo || v.paliwo === paliwo;
+    return matchQ && matchMarka && matchStan && matchPaliwo;
+  });
+
+  renderVehicleTable('vehiclesTableBody', filtered);
+  document.getElementById('vehiclesCount').textContent = `ZNALEZIONO: ${filtered.length} POJAZDÓW`;
+}
+
+function renderVehicleTable(tbodyId, vehicles) {
+  const tbody = document.getElementById(tbodyId);
+  if (!vehicles || vehicles.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="10"><div class="empty-state"><div class="icon">🚗</div><p>Brak pojazdów</p></div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = vehicles.map(v => {
+    const owner = v.Wlasciciel;
+    const ownerName = owner?.Imie ? `${owner.Imie} ${owner.Nazwisko}` : v.wlasciciel_pesel;
+    const avatarSrc = owner?.ZdjęciePath ? `http://localhost:5000${owner.ZdjęciePath}` : '';
+    const avatarHtml = avatarSrc
+      ? `<img src="${avatarSrc}" class="owner-avatar" onerror="this.style.display='none'">`
+      : `<div class="owner-avatar" style="display:flex;align-items:center;justify-content:center;font-size:12px">👤</div>`;
+
+    const colorMap = {
+      'czarny': '#111', 'biały': '#eee', 'srebrny': '#a0a0a0', 'czerwony': '#cc2200',
+      'niebieski': '#1133aa', 'szary': '#606060', 'zielony': '#226622', 'granatowy': '#112255',
+      'żółty': '#ccaa00', 'pomarańczowy': '#cc6600', 'brązowy': '#8b5a2b'
+    };
+    const colorHex = colorMap[v.kolor?.toLowerCase()] || '#666';
+
+    return `
+      <tr onclick="showDetail('${v.id}')">
+        <td class="td-mono">${v.nr_rejestracji}</td>
+        <td><span class="vin-text">${v.vin}</span></td>
+        <td><strong>${v.marka}</strong> ${v.model}${v.generacja ? ` <span style="color:var(--text3);font-size:11px">(${v.generacja})</span>` : ''}</td>
+        <td>
+          <div class="color-swatch">
+            <div class="swatch" style="background:${colorHex}"></div>
+            ${v.kolor}
+          </div>
+        </td>
+        <td style="font-family:var(--font-mono)">${v.rok_produkcji}</td>
+        <td>
+          <div class="owner-pill">
+            ${avatarHtml}
+            <div>
+              <div class="owner-name">${ownerName}</div>
+              <div class="owner-pesel">${owner?.Imie ? v.wlasciciel_pesel : ''}</div>
+            </div>
+          </div>
+        </td>
+        <td>${fuelBadge(v.paliwo)}</td>
+        <td style="font-family:var(--font-mono);font-size:12px">${v.przebieg ? v.przebieg.toLocaleString() + ' km' : '—'}</td>
+        <td>${stanBadge(v.stan)}</td>
+        <td onclick="event.stopPropagation()">
+          <div class="actions">
+            <button class="btn btn-secondary btn-sm btn-icon" onclick="showDetail('${v.id}')" title="Szczegóły">👁</button>
+            <button class="btn btn-danger btn-sm btn-icon" onclick="deleteVehicle('${v.id}', '${v.nr_rejestracji}')" title="Usuń">🗑</button>
+          </div>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+function stanBadge(stan) {
+  const map = { aktywny: 'green', skradziony: 'red', złomowany: 'warn', wyrejestrowany: 'gray' };
+  return `<span class="badge badge-${map[stan] || 'gray'}">${stan || '—'}</span>`;
+}
+
+function fuelBadge(paliwo) {
+  const map = { benzyna: 'blue', diesel: 'gray', elektryczny: 'green', hybryd: 'warn', lpg: 'warn' };
+  return `<span class="badge badge-${map[paliwo] || 'gray'}">${paliwo || '—'}</span>`;
+}
+
+// ===================== DETAIL =====================
+async function loadDetail(id) {
+  const content = document.getElementById('detailContent');
+  content.innerHTML = '<div class="loading"><div class="spinner"></div> Ładowanie szczegółów...</div>';
+
+  try {
+    const data = await apiFetch(`${API}/vehicles/${id}`);
+    if (!data.Sukces) { content.innerHTML = '<p>Błąd ładowania</p>'; return; }
+    const v = data.Pojazd;
+
+    const o = v.Wlasciciel;
+    const o2 = v.DrugiWlasciciel;
+    const avatarSrc = o?.ZdjęciePath ? `http://localhost:5000${o.ZdjęciePath}` : '';
+    const avatar2Src = o2?.ZdjęciePath ? `http://localhost:5000${o2.ZdjęciePath}` : '';
+
+    const ownerCard = (owner, avatarSrc, label) => `
+      <div class="owner-card">
+        ${avatarSrc
+          ? `<img src="${avatarSrc}" class="owner-card-avatar" onerror="this.outerHTML='<div class=owner-card-avatar style=display:flex;align-items:center;justify-content:center;font-size:24px>👤</div>'">`
+          : `<div class="owner-card-avatar" style="display:flex;align-items:center;justify-content:center;font-size:24px">👤</div>`}
+        <div class="owner-card-info">
+          <div style="font-family:var(--font-mono);font-size:9px;color:var(--text3);letter-spacing:2px;margin-bottom:4px">${label}</div>
+          <div class="owner-card-name">${owner?.Imie ? `${owner.Imie} ${owner.Nazwisko}` : 'Brak danych w systemie twarzy'}</div>
+          <div class="owner-card-pesel">${owner?.Pesel}</div>
+          ${owner?.DataUrodzenia ? `<div class="owner-card-details"><span>📅 ${owner.DataUrodzenia}</span><span>${owner.Plec || ''}</span></div>` : ''}
+        </div>
+      </div>
+    `;
+
+    const eventsHtml = v.Zdarzenia?.length > 0
+      ? v.Zdarzenia.map(e => `
+          <div class="event-item">
+            <span class="event-date">${e.data_zdarzenia}</span>
+            <div>
+              <div class="event-type">${e.typ_zdarzenia}</div>
+              ${e.opis ? `<div class="event-desc">${e.opis}</div>` : ''}
+              ${e.instytucja ? `<div class="event-desc">📍 ${e.instytucja}</div>` : ''}
+            </div>
+            ${e.koszt ? `<span class="event-cost">${parseFloat(e.koszt).toLocaleString()} PLN</span>` : ''}
+            <button class="btn btn-danger btn-sm" onclick="deleteEvent('${v.id}', ${e.id})" style="margin-left:10px">✕</button>
+          </div>
+        `).join('')
+      : '<div class="empty-state" style="padding:20px"><p>Brak zdarzeń</p></div>';
+
+    content.innerHTML = `
+      <div class="page-header">
+        <div>
+          <div class="page-title">${v.marka} ${v.model}${v.generacja ? ` · ${v.generacja}` : ''}</div>
+          <div class="page-subtitle">SZCZEGÓŁY POJAZDU</div>
+        </div>
+        <div class="actions">
+          ${v.stan !== 'skradziony' ? `<button class="btn btn-warn btn-sm" onclick="markStolen('${v.id}')">🚨 Kradzież</button>` : `<button class="btn btn-secondary btn-sm" onclick="unmarkStolen('${v.id}')">✓ Znaleziony</button>`}
+          <button class="btn btn-danger btn-sm" onclick="deleteVehicle('${v.id}','${v.nr_rejestracji}')">🗑 Usuń</button>
+        </div>
+      </div>
+
+      <div class="detail-header">
+        <div class="detail-plate" style="padding-left:36px">${v.nr_rejestracji}</div>
+        <div>
+          <div class="detail-make">${v.marka} ${v.model}</div>
+          <div class="detail-sub">${v.generacja || ''} · ${v.rok_produkcji} · ${v.typ_nadwozia || 'Typ nieznany'}</div>
+          <div style="margin-top:8px">${stanBadge(v.stan)} ${fuelBadge(v.paliwo)}</div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);letter-spacing:2px">PRZEBIEG</div>
+          <div style="font-size:24px;font-weight:800;font-family:var(--font-mono);color:var(--accent)">${v.przebieg ? v.przebieg.toLocaleString() : '—'} <span style="font-size:12px">km</span></div>
+        </div>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-panel">
+          <div class="detail-panel-title">Dane techniczne</div>
+          ${detailRow('VIN', v.vin, true)}
+          ${detailRow('Nr rejestracji', v.nr_rejestracji, true)}
+          ${detailRow('Kolor', v.kolor)}
+          ${detailRow('Rok produkcji', v.rok_produkcji)}
+          ${detailRow('Pojemność silnika', v.pojemnosc_silnika ? v.pojemnosc_silnika + ' ccm' : '—')}
+          ${detailRow('Moc', v.moc_kw ? v.moc_kw + ' kW (' + Math.round(v.moc_kw * 1.36) + ' KM)' : '—')}
+          ${detailRow('Paliwo', v.paliwo)}
+        </div>
+        <div class="detail-panel">
+          <div class="detail-panel-title">Rejestracja</div>
+          ${detailRow('Data pierwszej rejestracji', v.data_pierwszej_rejestracji)}
+          ${detailRow('Miejsce rejestracji', v.miejsce_rejestracji)}
+          ${detailRow('Status', v.stan)}
+          ${v.uwagi ? detailRow('Uwagi', v.uwagi) : ''}
+          ${detailRow('ID rekordu', v.id, true)}
+          ${detailRow('Dodano', new Date(v.created_at).toLocaleString('pl-PL'))}
+        </div>
+      </div>
+
+      <div class="detail-panel-title" style="padding:0 0 10px">WŁAŚCICIEL GŁÓWNY</div>
+      ${ownerCard(o, avatarSrc, 'WŁAŚCICIEL GŁÓWNY')}
+
+      ${o2 ? `<div class="detail-panel-title" style="padding:0 0 10px;margin-top:10px">DRUGI WŁAŚCICIEL / WSPÓŁWŁAŚCICIEL</div>${ownerCard(o2, avatar2Src, 'WSPÓŁWŁAŚCICIEL')}` : ''}
+
+      <div class="events-panel">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+          <div class="detail-panel-title" style="margin:0">HISTORIA ZDARZEŃ</div>
+          <button class="btn btn-primary btn-sm" onclick="openEventModal('${v.id}')">+ Dodaj zdarzenie</button>
+        </div>
+        ${eventsHtml}
+      </div>
+    `;
+  } catch (e) {
+    content.innerHTML = `<div class="empty-state"><div class="icon">⚠️</div><p>Błąd połączenia z serwerem</p></div>`;
+  }
+}
+
+function detailRow(key, val, mono = false) {
+  return `<div class="detail-row">
+    <span class="detail-key">${key}</span>
+    <span class="detail-val${mono ? ' mono' : ''}">${val || '—'}</span>
+  </div>`;
+}
+
+// ===================== ADD VEHICLE =====================
+function openAddModal() {
+  document.getElementById('addModal').classList.add('show');
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('show');
+}
+
+async function submitAddVehicle(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = {};
+  new FormData(form).forEach((v, k) => { if (v) data[k] = v; });
+
+  try {
+    const res = await apiFetch(`${API}/vehicles`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (res.Sukces) {
+      toast(`Pojazd ${res.NrRejestracji} zarejestrowany!`, 'success');
+      closeModal('addModal');
+      form.reset();
+      loadVehicles();
+      loadDashboard();
+      loadSidebarStats();
+    } else {
+      toast(res.Wiadomosc || 'Błąd rejestracji', 'error');
+    }
+  } catch (err) {
+    toast('Błąd połączenia z serwerem', 'error');
+  }
+}
+
+// ===================== DELETE VEHICLE =====================
+async function deleteVehicle(id, nr) {
+  if (!confirm(`Usunąć pojazd ${nr}?\n\nTa operacja jest nieodwracalna.`)) return;
+  try {
+    const res = await apiFetch(`${API}/vehicles/${id}`, { method: 'DELETE' });
+    if (res.Sukces) {
+      toast(`Pojazd ${nr} usunięty`, 'success');
+      loadVehicles();
+      loadSidebarStats();
+      showView('vehicles');
+    } else {
+      toast(res.Wiadomosc, 'error');
+    }
+  } catch (e) {
+    toast('Błąd połączenia', 'error');
+  }
+}
+
+// ===================== MARK STOLEN =====================
+async function markStolen(id) {
+  if (!confirm('Oznaczyć pojazd jako SKRADZIONY?')) return;
+  await apiFetch(`${API}/vehicles/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ stan: 'skradziony' })
+  });
+  toast('Pojazd oznaczony jako skradziony!', 'warn');
+  loadDetail(id);
+  loadSidebarStats();
+}
+
+async function unmarkStolen(id) {
+  await apiFetch(`${API}/vehicles/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ stan: 'aktywny' })
+  });
+  toast('Status przywrócony do aktywny', 'success');
+  loadDetail(id);
+}
+
+// ===================== EVENTS =====================
+function openEventModal(vehicleId) {
+  document.getElementById('eventVehicleId').value = vehicleId;
+  document.getElementById('eventModal').classList.add('show');
+}
+
+async function submitEvent(e) {
+  e.preventDefault();
+  const vid = document.getElementById('eventVehicleId').value;
+  const form = e.target;
+  const data = {};
+  new FormData(form).forEach((v, k) => { if (v) data[k] = v; });
+
+  try {
+    const res = await apiFetch(`${API}/vehicles/${vid}/events`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    if (res.Sukces) {
+      toast('Zdarzenie dodane', 'success');
+      closeModal('eventModal');
+      form.reset();
+      loadDetail(vid);
+    } else {
+      toast(res.Wiadomosc, 'error');
+    }
+  } catch (err) {
+    toast('Błąd połączenia', 'error');
+  }
+}
+
+async function deleteEvent(vehicleId, eventId) {
+  if (!confirm('Usunąć zdarzenie?')) return;
+  await apiFetch(`${API}/vehicles/${vehicleId}/events/${eventId}`, { method: 'DELETE' });
+  toast('Zdarzenie usunięte', 'success');
+  loadDetail(vehicleId);
+}
+
+// ===================== SEARCH =====================
+async function doQuickSearch() {
+  const q = document.getElementById('quickSearch').value;
+  if (!q) return;
+  const container = document.getElementById('searchResults');
+  container.innerHTML = '<div class="loading"><div class="spinner"></div> Szukam...</div>';
+
+  try {
+    const data = await apiFetch(`${API}/search?q=${encodeURIComponent(q)}`);
+    if (!data.Sukces || data.Wyniki.length === 0) {
+      container.innerHTML = '<div class="empty-state"><div class="icon">🔍</div><p>Brak wyników</p></div>';
+      return;
+    }
+
+    container.innerHTML = `
+      <div class="table-wrap">
+        <div class="table-header"><span class="table-title">WYNIKI: ${data.Ilosc}</span></div>
+        <table>
+          <thead><tr><th>Nr rej.</th><th>VIN</th><th>Marka / Model</th><th>Kolor</th><th>Rok</th><th>PESEL</th><th>Status</th><th></th></tr></thead>
+          <tbody>
+            ${data.Wyniki.map(v => `
+              <tr onclick="showDetail('${v.id}')" style="cursor:pointer">
+                <td class="td-mono">${v.nr_rejestracji}</td>
+                <td><span class="vin-text">${v.vin}</span></td>
+                <td><strong>${v.marka}</strong> ${v.model}${v.generacja ? ` (${v.generacja})` : ''}</td>
+                <td>${v.kolor}</td>
+                <td style="font-family:var(--font-mono)">${v.rok_produkcji}</td>
+                <td style="font-family:var(--font-mono);font-size:11px">${v.wlasciciel_pesel}</td>
+                <td>${stanBadge(v.stan)}</td>
+                <td><button class="btn btn-secondary btn-sm" onclick="event.stopPropagation();showDetail('${v.id}')">Szczegóły</button></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch (e) {
+    container.innerHTML = '<div class="empty-state"><p>Błąd połączenia</p></div>';
+  }
+}
+
+document.getElementById('quickSearch').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doQuickSearch();
+});
+
+// ===================== LOGS =====================
+async function loadLogs() {
+  try {
+    const data = await apiFetch(`${API}/activity-logs`);
+    const tbody = document.getElementById('logsTableBody');
+
+    if (!data.Sukces || data.Logi.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="5"><div class="empty-state"><p>Brak logów</p></div></td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = data.Logi.map(l => `
+      <tr>
+        <td style="font-family:var(--font-mono);color:var(--text3)">${l.id}</td>
+        <td><span class="badge badge-blue">${l.action_type}</span></td>
+        <td class="td-mono">${l.nr_rejestracji || '—'}</td>
+        <td style="font-size:12px;color:var(--text2)">${l.details || '—'}</td>
+        <td style="font-family:var(--font-mono);font-size:11px;color:var(--text3)">${new Date(l.created_at).toLocaleString('pl-PL')}</td>
+      </tr>
+    `).join('');
+  } catch (e) {
+    document.getElementById('logsTableBody').innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text3)">Błąd połączenia</td></tr>';
+  }
+}
+
+// ===================== UTILS =====================
+function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+
+// ===================== INIT =====================
+loadDashboard();
+loadSidebarStats();
+</script>
+</body>
+</html>
